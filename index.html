@@ -36,16 +36,16 @@
                             900: '#2E2A23',
                         },
                         rose: {
-                            50: '#FDF2F4',
-                            100: '#FCE7EB',
-                            200: '#F9D1D9',
-                            300: '#F4AAB9',
-                            400: '#EC7A93',
-                            500: '#DF4D6F',
-                            600: '#CA2E54',
-                            700: '#A91F41',
-                            800: '#8E1D39',
-                            900: '#771C33',
+                            50: '#FAF3F3',
+                            100: '#F5E7E8',
+                            200: '#EBD1D4',
+                            300: '#DCB0B5',
+                            400: '#C78891',
+                            500: '#AB606C',
+                            600: '#8A3B49',
+                            700: '#6E2C37',
+                            800: '#5A252E',
+                            900: '#461E24',
                         },
                         mauve: {
                             500: '#9B5B6E',
@@ -58,7 +58,7 @@
                         'soft-md': '0 8px 24px -4px rgba(140, 110, 100, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.03)',
                         'soft-lg': '0 16px 36px -6px rgba(140, 110, 100, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.04)',
                         'soft-card': '0 4px 20px -2px rgba(110, 85, 80, 0.05), 0 0 1px 1px rgba(230, 220, 215, 0.6)',
-                        'soft-hover': '0 12px 28px -4px rgba(180, 80, 100, 0.12), 0 2px 8px -1px rgba(0, 0, 0, 0.04)',
+                        'soft-hover': '0 12px 28px -4px rgba(110, 44, 55, 0.14), 0 2px 8px -1px rgba(0, 0, 0, 0.04)',
                     }
                 }
             }
@@ -73,7 +73,7 @@
         body {
             background-color: #FAF6F0;
             background-image: 
-                radial-gradient(circle at 10% 5%, rgba(249, 209, 217, 0.35) 0%, transparent 40%),
+                radial-gradient(circle at 10% 5%, rgba(235, 209, 212, 0.4) 0%, transparent 40%),
                 radial-gradient(circle at 90% 15%, rgba(244, 236, 225, 0.6) 0%, transparent 45%),
                 radial-gradient(circle at 50% 60%, rgba(253, 242, 244, 0.4) 0%, transparent 60%);
             background-attachment: fixed;
@@ -120,8 +120,8 @@
         }
         .clean-card-interactive:hover {
             transform: translateY(-4px);
-            border-color: #E2B6C1;
-            box-shadow: 0 14px 30px -4px rgba(180, 80, 105, 0.10), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border-color: #D4B2B7;
+            box-shadow: 0 14px 30px -4px rgba(110, 44, 55, 0.11), 0 2px 6px rgba(0, 0, 0, 0.02);
         }
 
         @media (hover: none) {
@@ -131,18 +131,18 @@
 
         /* Clean Aesthetic Primary Button */
         .btn-clean-primary {
-            background-color: #CA2E54;
+            background-color: #7A303D;
             color: #FFFFFF;
             border-radius: 1rem;
             font-weight: 600;
             transition: all 0.25s var(--ease-out-spring);
             -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 4px 14px -2px rgba(202, 46, 84, 0.35);
+            box-shadow: 0 4px 14px -2px rgba(110, 44, 55, 0.35);
         }
         .btn-clean-primary:hover {
-            background-color: #A91F41;
+            background-color: #63242F;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px -3px rgba(202, 46, 84, 0.45);
+            box-shadow: 0 8px 20px -3px rgba(110, 44, 55, 0.45);
         }
         .btn-clean-primary:active, button:active {
             transform: scale(0.98);
@@ -165,7 +165,7 @@
         }
 
         :focus-visible {
-            outline: 2px solid #CA2E54;
+            outline: 2px solid #7A303D;
             outline-offset: 3px;
             border-radius: 12px;
         }
@@ -186,12 +186,12 @@
         /* Clean Soft Video Play Button */
         .play-button-clean {
             background: #FFFFFF;
-            box-shadow: 0 10px 25px -4px rgba(180, 50, 80, 0.22), 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px -4px rgba(110, 44, 55, 0.20), 0 2px 8px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s var(--ease-out-spring), box-shadow 0.3s var(--ease-out-spring);
         }
         .play-button-clean:hover {
             transform: scale(1.06);
-            box-shadow: 0 14px 32px -4px rgba(180, 50, 80, 0.32);
+            box-shadow: 0 14px 32px -4px rgba(110, 44, 55, 0.30);
         }
 
         /* Modals */
