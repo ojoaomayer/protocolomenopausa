@@ -172,6 +172,26 @@
             border-radius: 12px;
         }
 
+                /* Subtle Floating Keyframes for Organic Background Blobs */
+        @keyframes float-gentle-1 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(25px, -20px) scale(1.06); }
+        }
+        @keyframes float-gentle-2 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-20px, 25px) scale(0.96); }
+        }
+        @keyframes float-gentle-3 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(15px, 20px) scale(1.04); }
+        }
+        .anim-blob-1 { animation: float-gentle-1 18s ease-in-out infinite; will-change: transform; }
+        .anim-blob-2 { animation: float-gentle-2 22s ease-in-out infinite; will-change: transform; }
+        .anim-blob-3 { animation: float-gentle-3 20s ease-in-out infinite; will-change: transform; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .anim-blob-1, .anim-blob-2, .anim-blob-3 { animation: none !important; }
+        }
         /* Single Page App Views */
         .app-view {
             display: none;
@@ -221,7 +241,36 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-rose-200 selection:text-rose-900">
+<body class="min-h-screen flex flex-col antialiased selection:bg-rose-200 selection:text-rose-900 relative">
+    <!-- ==========================================
+         ELEMENTOS VISUAIS DECORATIVOS NO BACKGROUND
+    =========================================== -->
+    <div class="pointer-events-none fixed inset-0 overflow-hidden z-0" aria-hidden="true">
+        <!-- Floating Marsala Soft Orb 1 (Top Left) -->
+        <div class="anim-blob-1 absolute -top-24 -left-24 w-[480px] h-[480px] rounded-full bg-gradient-to-br from-rose-300/25 via-rose-400/15 to-transparent blur-3xl opacity-80"></div>
+        
+        <!-- Floating Marsala Soft Orb 2 (Right Mid) -->
+        <div class="anim-blob-2 absolute top-1/3 -right-28 w-[520px] h-[520px] rounded-full bg-gradient-to-bl from-rose-700/12 via-rose-300/18 to-transparent blur-3xl opacity-75"></div>
+        
+        <!-- Floating Warm Cashmere Orb 3 (Bottom Left) -->
+        <div class="anim-blob-3 absolute -bottom-32 -left-20 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-rose-800/10 via-rose-200/20 to-transparent blur-3xl opacity-70"></div>
+
+        <!-- Elegant Thin Geometric Deco Circles (Apple/Minimalist Aesthetic) -->
+        <svg class="absolute top-28 right-[10%] w-72 h-72 text-rose-300/30 opacity-60 hidden md:block" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="85" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 6" />
+            <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="0.8" />
+        </svg>
+
+        <svg class="absolute top-[55%] left-[5%] w-80 h-80 text-rose-400/25 opacity-50 hidden lg:block" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="1" />
+            <path d="M40 100 Q 100 40 160 100 T 160 160" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 5" />
+        </svg>
+
+        <svg class="absolute bottom-20 right-[5%] w-96 h-96 text-rose-300/25 opacity-40 hidden md:block" viewBox="0 0 250 250" fill="none">
+            <circle cx="125" cy="125" r="110" stroke="currentColor" stroke-width="1" stroke-dasharray="6 8" />
+            <circle cx="125" cy="125" r="80" stroke="currentColor" stroke-width="0.75" />
+        </svg>
+    </div>
 
     <!-- ==========================================
          HEADER FIXA (CLEAN APPLE-LIKE)
@@ -304,7 +353,7 @@
     <!-- ==========================================
          MAIN CONTENT (SPA CONTAINER)
     =========================================== -->
-    <main class="flex-grow pt-28 pb-24">
+    <main class="flex-grow pt-28 pb-24 relative z-10">
 
         <!-- ==========================================
              PÁGINA 1: HOME (DASHBOARD & BOAS-VINDAS)
