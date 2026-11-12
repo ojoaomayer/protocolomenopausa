@@ -23,21 +23,20 @@
                         display: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
                     },
                     colors: {
-                        navy: {
-                            800: '#0a1636',
-                            900: '#060d24',
-                            950: '#020614',
+                        plum: {
+                            800: '#2a1124',
+                            900: '#1a0a17',
+                            950: '#0d040c',
                         },
-                        neon: {
-                            blue: '#38bdf8',
-                            indigo: '#6366f1',
-                            purple: '#a855f7',
-                        }
+                        rosewood: '#3b1429',
+                        blush: '#f472b6',
+                        petal: '#fbcfe8',
+                        warmrose: '#fb7185',
                     },
                     boxShadow: {
-                        'neon-sm': '0 0 15px -3px rgba(99, 102, 241, 0.35), 0 0 6px -2px rgba(168, 85, 247, 0.25)',
-                        'neon-md': '0 0 25px -4px rgba(56, 189, 248, 0.4), 0 0 15px -3px rgba(168, 85, 247, 0.35)',
-                        'neon-lg': '0 0 40px -5px rgba(99, 102, 241, 0.5), 0 0 20px -4px rgba(168, 85, 247, 0.45)',
+                        'neon-sm': '0 0 18px -3px rgba(244, 114, 182, 0.32), 0 0 8px -2px rgba(251, 113, 133, 0.25)',
+                        'neon-md': '0 0 26px -4px rgba(244, 114, 182, 0.42), 0 0 14px -3px rgba(251, 113, 133, 0.32)',
+                        'neon-lg': '0 0 40px -5px rgba(244, 114, 182, 0.48), 0 0 22px -4px rgba(225, 29, 72, 0.38)',
                     }
                 }
             }
@@ -50,14 +49,14 @@
         }
         html { -webkit-text-size-adjust: 100%; }
         body {
-            background-color: #020510;
+            background-color: #0d040c;
             background-image: 
-                radial-gradient(circle at 15% 10%, rgba(30, 58, 138, 0.28) 0%, transparent 45%),
-                radial-gradient(circle at 85% 25%, rgba(109, 40, 217, 0.18) 0%, transparent 45%),
-                radial-gradient(circle at 50% 80%, rgba(15, 23, 42, 0.6) 0%, transparent 60%),
-                linear-gradient(180deg, #040B22 0%, #020510 55%, #000000 100%);
+                radial-gradient(circle at 18% 12%, rgba(190, 24, 93, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 82% 22%, rgba(225, 29, 72, 0.16) 0%, transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(42, 17, 36, 0.45) 0%, transparent 60%),
+                linear-gradient(180deg, #180715 0%, #0d040c 55%, #050105 100%);
             background-attachment: fixed;
-            color: #f8fafc;
+            color: #fdf2f8;
             overflow-x: hidden;
             font-optical-sizing: auto;
             line-height: 1.5;
@@ -75,39 +74,39 @@
 
         /* Glassmorphism */
         .glass-header {
-            background: rgba(4, 11, 34, 0.55);
+            background: rgba(24, 7, 21, 0.65);
             backdrop-filter: blur(24px) saturate(180%);
             -webkit-backdrop-filter: blur(24px) saturate(180%);
             border-bottom: 0;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
         }
         .glass-header::after {
             content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 28px; pointer-events: none;
-            background: linear-gradient(to bottom, rgba(2,5,16,0.55), transparent);
+            background: linear-gradient(to bottom, rgba(13, 4, 12, 0.65), transparent);
         }
         .glass-card {
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.55) 0%, rgba(6, 13, 36, 0.38) 100%);
+            background: linear-gradient(145deg, rgba(38, 14, 32, 0.55) 0%, rgba(20, 7, 18, 0.45) 100%);
             backdrop-filter: blur(24px) saturate(160%);
             -webkit-backdrop-filter: blur(24px) saturate(160%);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-top-color: rgba(255, 255, 255, 0.16);
-            box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+            border-top-color: rgba(255, 220, 235, 0.18);
+            box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.65);
             transition: transform 0.45s var(--ease-out-spring), box-shadow 0.45s var(--ease-out-spring), border-color 0.3s ease, background 0.3s ease;
         }
         .glass-card .glass-card {
             backdrop-filter: none;
-            background: rgba(2, 6, 23, 0.55);
+            background: rgba(20, 7, 18, 0.6);
         }
 
         .glass-card-interactive:hover {
             transform: translateY(-5px);
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.65) 0%, rgba(15, 23, 42, 0.5) 100%);
-            border-color: rgba(139, 92, 246, 0.55);
+            background: linear-gradient(145deg, rgba(58, 20, 48, 0.65) 0%, rgba(32, 10, 28, 0.55) 100%);
+            border-color: rgba(244, 114, 182, 0.55);
             box-shadow: 
-                0 12px 32px -8px rgba(0, 0, 0, 0.7),
-                0 0 24px -4px rgba(56, 189, 248, 0.28),
-                0 0 16px -2px rgba(168, 85, 247, 0.32),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+                0 14px 34px -8px rgba(0, 0, 0, 0.75),
+                0 0 24px -3px rgba(244, 114, 182, 0.32),
+                0 0 16px -2px rgba(251, 113, 133, 0.32),
+                inset 0 1px 0 0 rgba(255, 240, 245, 0.2);
         }
 
         @media (hover: none) {
@@ -117,10 +116,10 @@
 
         /* Buttons & Tap Feedback */
         .btn-neon {
-            background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #9333ea 100%);
+            background: linear-gradient(135deg, #db2777 0%, #e11d48 50%, #be185d 100%);
             background-size: 200% 200%;
-            border: 1px solid rgba(168, 85, 247, 0.45);
-            box-shadow: 0 0 20px -3px rgba(99, 102, 241, 0.45), 0 0 10px -2px rgba(168, 85, 247, 0.35);
+            border: 1px solid rgba(244, 114, 182, 0.45);
+            box-shadow: 0 0 20px -3px rgba(244, 114, 182, 0.45), 0 0 10px -2px rgba(225, 29, 72, 0.35);
             transition: transform 0.4s var(--ease-out-spring), box-shadow 0.4s var(--ease-out-spring), border-color 0.3s ease, background-position 0.5s ease;
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
@@ -128,15 +127,15 @@
         .btn-neon:hover {
             background-position: right center;
             transform: translateY(-2px) scale(1.01);
-            border-color: rgba(56, 189, 248, 0.8);
-            box-shadow: 0 0 30px -2px rgba(56, 189, 248, 0.55), 0 0 18px 0px rgba(168, 85, 247, 0.5);
+            border-color: rgba(251, 207, 232, 0.85);
+            box-shadow: 0 0 30px -2px rgba(244, 114, 182, 0.6), 0 0 18px 0px rgba(251, 113, 133, 0.5);
         }
         .btn-neon:active, button:active {
             transform: scale(0.97);
             transition-duration: 0.1s;
         }
         :focus-visible {
-            outline: 2px solid #38bdf8;
+            outline: 2px solid #f472b6;
             outline-offset: 3px;
             border-radius: 12px;
         }
@@ -206,16 +205,16 @@
         }
         @media (prefers-reduced-transparency: reduce) {
             .glass-header, .glass-card, #video-modal, #module-modal { backdrop-filter: none; -webkit-backdrop-filter: none; }
-            .glass-header { background: #040b22; }
-            .glass-card { background: #0b1330; }
+            .glass-header { background: #1a0a17; }
+            .glass-card { background: #260e20; }
         }
         @media (prefers-contrast: more) {
-            .glass-card, .glass-header { background: #060d24; border-color: rgba(255,255,255,0.5); }
-            .text-slate-400, .text-slate-300 { color: #e2e8f0; }
+            .glass-card, .glass-header { background: #1a0a17; border-color: rgba(255,255,255,0.5); }
+            .text-slate-400, .text-slate-300 { color: #fdf2f8; }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500/30 selection:text-sky-200">
+<body class="min-h-screen flex flex-col antialiased selection:bg-pink-500/30 selection:text-pink-100">
 
     <!-- ==========================================
          HEADER FIXA (APPLE-DESIGN GLASSMORPHISM)
@@ -227,15 +226,15 @@
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center group focus:outline-none">
                 <div class="flex flex-col">
                     <div class="flex items-center gap-2">
-                        <span class="font-display font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                        <span class="font-display font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-pink-300 transition-colors">
                             Protocolo Menopausa
                         </span>
                         <span class="hidden sm:inline-block text-slate-600 font-light">|</span>
-                        <span class="hidden sm:inline-block text-xs font-medium uppercase tracking-widest text-indigo-300/90">
+                        <span class="hidden sm:inline-block text-xs font-medium uppercase tracking-widest text-pink-300/90">
                             Ale Zorzan
                         </span>
                     </div>
-                    <span class="sm:hidden text-[11px] font-medium uppercase tracking-widest text-indigo-300/80">
+                    <span class="sm:hidden text-[11px] font-medium uppercase tracking-widest text-pink-300/80">
                         Clínica Ale Zorzan
                     </span>
                 </div>
@@ -267,36 +266,36 @@
             <div class="flex items-center gap-3">
                 <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Sou%20aluna%20do%20Protocolo%20Menopausa%20da%20Cl%C3%ADnica%20Ale%20Zorzan%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida." 
                    target="_blank" rel="noopener noreferrer"
-                   class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-indigo-500/35 hover:border-sky-400/70 shadow-neon-sm text-xs font-semibold text-slate-100 hover:text-white transition-all">
+                   class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-pink-500/35 hover:border-rose-400/70 shadow-neon-sm text-xs font-semibold text-slate-100 hover:text-white transition-all">
                     <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
                     <span>WhatsApp Equipe</span>
                 </a>
 
                 <!-- Mobile Hamburger Toggle -->
-                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2.5 rounded-xl bg-slate-900/70 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400/50 transition-all" aria-label="Abrir menu">
+                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2.5 rounded-xl bg-slate-900/70 border border-white/10 text-slate-300 hover:text-white hover:border-pink-400/50 transition-all" aria-label="Abrir menu">
                     <i data-lucide="menu" class="w-5 h-5" id="mobile-menu-icon"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Navigation Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-navy-950/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5">
-            <button type="button" onclick="navigateTo('home'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-plum-950/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5">
+            <button type="button" onclick="navigateTo('home'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-pink-500/15 hover:text-pink-200 transition-all">
                 Início & Boas-Vindas
             </button>
-            <button type="button" onclick="navigateTo('protocolo'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+            <button type="button" onclick="navigateTo('protocolo'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-pink-500/15 hover:text-pink-200 transition-all">
                 O Protocolo (3 Fases)
             </button>
-            <button type="button" onclick="navigateTo('cardapio'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+            <button type="button" onclick="navigateTo('cardapio'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-pink-500/15 hover:text-pink-200 transition-all">
                 Guia Alimentar & Cardápio
             </button>
-            <button type="button" onclick="navigateTo('treinos'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+            <button type="button" onclick="navigateTo('treinos'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-pink-500/15 hover:text-pink-200 transition-all">
                 Treinos de Força & Alongamento
             </button>
-            <button type="button" onclick="navigateTo('suplementacao'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+            <button type="button" onclick="navigateTo('suplementacao'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-pink-500/15 hover:text-pink-200 transition-all">
                 Suplementação & Chás
             </button>
-            <button type="button" onclick="navigateTo('metricas'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+            <button type="button" onclick="navigateTo('metricas'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-pink-500/15 hover:text-pink-200 transition-all">
                 Calculadora de Métricas & Hidratação
             </button>
         </div>
@@ -315,51 +314,51 @@
             <!-- Hero Section -->
             <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16">
                 <!-- Ambient Decorative Glows -->
-                <div class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-[340px] sm:w-[620px] h-[280px] bg-gradient-to-tr from-blue-600/20 via-indigo-600/15 to-purple-600/20 blur-[110px] rounded-full -z-10"></div>
+                <div class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-[340px] sm:w-[620px] h-[280px] bg-gradient-to-tr from-rose-600/20 via-pink-600/15 to-fuchsia-600/20 blur-[110px] rounded-full -z-10"></div>
 
                 <div class="text-center max-w-4xl mx-auto">
                     <!-- Tagline Pill -->
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-400/30 text-xs sm:text-sm font-medium text-sky-300 mb-6 shadow-neon-sm">
-                        <i data-lucide="shield-check" class="w-4 h-4 text-purple-400"></i>
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-plum-900/60 border border-pink-400/30 text-xs sm:text-sm font-medium text-pink-300 mb-6 shadow-neon-sm">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-rose-400"></i>
                         <span>Área Exclusiva da Aluna • Clínica Ale Zorzan</span>
                     </div>
 
                     <!-- Título Principal Oficial -->
                     <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[56px] text-white mb-10">
                         Bem-vinda à melhor fase da sua vida. 
-                        <span class="bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
+                        <span class="bg-gradient-to-r from-pink-300 via-rose-200 to-fuchsia-300 bg-clip-text text-transparent">
                             Sem calores, sem cansaço e com o metabolismo funcionando a seu favor.
                         </span>
                     </h1>
 
                     <!-- Featured Video Player Container -->
                     <div class="relative max-w-4xl mx-auto mb-10 group">
-                        <div class="-inset-0.5 bg-gradient-to-r from-sky-500/40 via-indigo-500/40 to-purple-600/40 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-500 absolute"></div>
+                        <div class="-inset-0.5 bg-gradient-to-r from-rose-500/40 via-pink-500/40 to-fuchsia-600/40 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-500 absolute"></div>
                         
                         <div onclick="openVideoModal()" 
                              role="button"
                              tabindex="0"
                              onkeydown="if(event.key==='Enter'||event.key===' ') openVideoModal()"
                              aria-label="Reproduzir aula de boas-vindas do Protocolo Menopausa"
-                             class="relative aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden glass-card border border-white/15 group-hover:border-sky-400/60 cursor-pointer flex flex-col justify-between p-6 sm:p-10 text-left shadow-2xl">
+                             class="relative aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden glass-card border border-white/15 group-hover:border-pink-400/60 cursor-pointer flex flex-col justify-between p-6 sm:p-10 text-left shadow-2xl">
                             
-                            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/50 via-navy-950/90 to-black z-0"></div>
+                            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-plum-800/50 via-plum-950/90 to-black z-0"></div>
                             <div class="absolute inset-0 opacity-25 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
 
                             <!-- Top Bar inside Video Preview -->
                             <div class="relative z-10 flex items-center justify-between">
                                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-xs font-medium text-slate-200">
-                                    <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                                    <span class="w-2 h-2 rounded-full bg-pink-400 animate-pulse"></span>
                                     Vídeo de Boas-Vindas • Comece Aqui
                                 </span>
                             </div>
 
                             <!-- Center Play Button -->
                             <div class="relative z-10 my-auto flex flex-col items-center justify-center text-center py-4">
-                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white play-pulse group-hover:scale-110 transition-transform duration-300">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-rose-500 via-pink-500 to-fuchsia-600 flex items-center justify-center text-white play-pulse group-hover:scale-110 transition-transform duration-300">
                                     <i data-lucide="play" class="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1"></i>
                                 </div>
-                                <span class="mt-4 text-xs sm:text-sm font-semibold uppercase tracking-widest text-sky-300 group-hover:text-white transition-colors">
+                                <span class="mt-4 text-xs sm:text-sm font-semibold uppercase tracking-widest text-pink-300 group-hover:text-white transition-colors">
                                     Clique para assistir à orientação inicial
                                 </span>
                             </div>
@@ -370,7 +369,7 @@
                                     <p class="text-sm sm:text-base font-semibold text-white">Abertura Oficial: O Mapa da Sua Transformação</p>
                                     <p class="text-xs text-slate-400">Com Equipe Médica & Nutricional — Clínica Ale Zorzan</p>
                                 </div>
-                                <div class="inline-flex items-center gap-1.5 text-xs font-medium text-purple-300">
+                                <div class="inline-flex items-center gap-1.5 text-xs font-medium text-pink-300">
                                     <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
                                     <span>Abrir em tela cheia</span>
                                 </div>
@@ -389,8 +388,8 @@
                             <i data-lucide="sparkles" class="w-5 h-5"></i>
                             <span>Conhecer o Protocolo</span>
                         </button>
-                        <button type="button" onclick="navigateTo('cardapio')" class="w-full sm:w-auto px-7 py-4 rounded-2xl glass-card hover:border-sky-400/50 text-slate-200 hover:text-white font-display font-medium text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all">
-                            <i data-lucide="utensils" class="w-5 h-5 text-sky-400"></i>
+                        <button type="button" onclick="navigateTo('cardapio')" class="w-full sm:w-auto px-7 py-4 rounded-2xl glass-card hover:border-pink-400/50 text-slate-200 hover:text-white font-display font-medium text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all">
+                            <i data-lucide="utensils" class="w-5 h-5 text-pink-400"></i>
                             <span>Ver Guia Alimentar</span>
                         </button>
                     </div>
@@ -401,7 +400,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
                     <div>
-                        <span class="text-xs font-semibold uppercase tracking-widest text-sky-400 block mb-2">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-pink-400 block mb-2">
                             Hub da Aluna • 6 Pilares Integrados
                         </span>
                         <h2 class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight">
@@ -418,21 +417,21 @@
                     <article onclick="openModuleModal(1)" tabindex="0" role="button" class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
-                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-blue-500/15 border border-blue-400/30 text-sky-400 group-hover:bg-blue-500/25 group-hover:border-sky-400 group-hover:shadow-neon-sm transition-all">
+                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-rose-500/15 border border-rose-400/30 text-rose-300 group-hover:bg-rose-500/25 group-hover:border-pink-400 group-hover:shadow-neon-sm transition-all">
                                     <i data-lucide="compass" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-sky-400/40 group-hover:text-sky-300 transition-colors">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-pink-400/40 group-hover:text-pink-200 transition-colors">
                                     Módulo 01
                                 </span>
                             </div>
-                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-sky-300 transition-colors">
+                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-pink-300 transition-colors">
                                 O Passo a Passo da Nova Fase
                             </h3>
                             <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
                                 Entenda exatamente o que está acontecendo com os seus hormônios agora e como nós vamos agir, semana a semana, para silenciar os sintomas do climatério e da menopausa.
                             </p>
                         </div>
-                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-pink-300 group-hover:text-pink-300">
                             <span>Mapa Hormonal • Guia Clínico</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -442,21 +441,21 @@
                     <article onclick="navigateTo('cardapio')" tabindex="0" role="button" class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
-                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-indigo-500/15 border border-indigo-400/30 text-indigo-300 group-hover:bg-indigo-500/25 group-hover:border-indigo-400 group-hover:shadow-neon-sm transition-all">
+                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-pink-500/15 border border-pink-400/30 text-pink-300 group-hover:bg-pink-500/25 group-hover:border-pink-400 group-hover:shadow-neon-sm transition-all">
                                     <i data-lucide="utensils" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-indigo-400/40 group-hover:text-indigo-200 transition-colors">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-pink-400/40 group-hover:text-pink-200 transition-colors">
                                     Módulo 02
                                 </span>
                             </div>
-                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-indigo-300 transition-colors">
+                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-pink-300 transition-colors">
                                 Alimentação a seu Favor
                             </h3>
                             <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
                                 Esqueça as dietas malucas. Aqui você vai aprender a usar alimentos estratégicos, controlar a insulina e proteger os seus ossos comendo comida de verdade, simples e muito saborosa.
                             </p>
                         </div>
-                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-pink-300 group-hover:text-pink-300">
                             <span>Acessar Página do Cardápio</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -466,21 +465,21 @@
                     <article onclick="openModuleModal(3)" tabindex="0" role="button" class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
-                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-purple-500/15 border border-purple-400/30 text-purple-300 group-hover:bg-purple-500/25 group-hover:border-purple-400 group-hover:shadow-neon-sm transition-all">
+                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-purple-500/15 border border-fuchsia-400/30 text-pink-300 group-hover:bg-purple-500/25 group-hover:border-purple-400 group-hover:shadow-neon-sm transition-all">
                                     <i data-lucide="moon-star" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-purple-400/40 group-hover:text-purple-200 transition-colors">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-fuchsia-400/40 group-hover:text-fuchsia-200 transition-colors">
                                     Módulo 03
                                 </span>
                             </div>
-                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-purple-300 transition-colors">
+                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-pink-300 transition-colors">
                                 O Fim da Insônia e do Calor
                             </h3>
                             <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
                                 Um mapa diário para você acompanhar a diminuição rápida das ondas de calor, a melhora do seu humor e o resgate daquelas noites de sono profundo que você não tem faz tempo.
                             </p>
                         </div>
-                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-pink-300 group-hover:text-pink-300">
                             <span>Protocolo do Sono & Fogachos</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -490,21 +489,21 @@
                     <article onclick="navigateTo('treinos')" tabindex="0" role="button" class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
-                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-sky-500/15 border border-sky-400/30 text-sky-300 group-hover:bg-sky-500/25 group-hover:border-sky-400 group-hover:shadow-neon-sm transition-all">
+                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-pink-500/15 border border-pink-400/30 text-pink-300 group-hover:bg-pink-500/25 group-hover:border-rose-400 group-hover:shadow-neon-sm transition-all">
                                     <i data-lucide="dumbbell" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-sky-400/40 group-hover:text-sky-200 transition-colors">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-pink-400/40 group-hover:text-pink-100 transition-colors">
                                     Módulo 04
                                 </span>
                             </div>
-                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-sky-300 transition-colors">
+                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-pink-300 transition-colors">
                                 Força é a sua Nova Proteção
                             </h3>
                             <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
                                 O segredo real para combater a flacidez e a perda óssea. Você terá acesso a treinos de musculação pensados para o seu momento, que protegem as articulações e aceleram o seu metabolismo.
                             </p>
                         </div>
-                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-pink-300 group-hover:text-pink-300">
                             <span>Acessar Fichas de Treino</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -514,21 +513,21 @@
                     <article onclick="navigateTo('suplementacao')" tabindex="0" role="button" class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
-                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-violet-500/15 border border-violet-400/30 text-violet-300 group-hover:bg-violet-500/25 group-hover:border-violet-400 group-hover:shadow-neon-sm transition-all">
+                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-pink-500/15 border border-pink-400/30 text-pink-300 group-hover:bg-pink-500/25 group-hover:border-pink-400 group-hover:shadow-neon-sm transition-all">
                                     <i data-lucide="droplets" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-violet-400/40 group-hover:text-violet-200 transition-colors">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-pink-400/40 group-hover:text-pink-200 transition-colors">
                                     Módulo 05
                                 </span>
                             </div>
-                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-violet-300 transition-colors">
+                            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-pink-300 transition-colors">
                                 O Suporte que o Corpo Pede
                             </h3>
                             <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
                                 Descubra quais vitaminas e suplementos realmente importam nessa fase e como a hidratação certa vai eliminar o inchaço e devolver o viço da sua pele.
                             </p>
                         </div>
-                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-pink-300 group-hover:text-pink-300">
                             <span>Acessar Guia de Suplementos</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -536,7 +535,7 @@
 
                     <!-- Módulo 6 -->
                     <article onclick="openModuleModal(6)" tabindex="0" role="button" class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group relative overflow-hidden">
-                        <div class="pointer-events-none absolute -right-10 -bottom-10 w-36 h-36 bg-indigo-500/15 blur-2xl rounded-full"></div>
+                        <div class="pointer-events-none absolute -right-10 -bottom-10 w-36 h-36 bg-pink-500/15 blur-2xl rounded-full"></div>
                         <div>
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-13 h-13 p-3.5 rounded-2xl bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 group-hover:bg-emerald-500/25 group-hover:border-emerald-400 group-hover:shadow-neon-sm transition-all">
@@ -569,7 +568,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 
                 <div class="text-center max-w-3xl mx-auto mb-10">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-purple-400 block mb-2">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-rose-400 block mb-2">
                         Jornada Clínica Estruturada
                     </span>
                     <h2 class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight mb-4">
@@ -583,40 +582,40 @@
                 <!-- Tabs Selector -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto mb-8" role="tablist">
                     <button type="button" role="tab" id="tab-btn-1" onclick="selectPhaseTab(1)"
-                            class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between bg-gradient-to-r from-blue-600/30 via-indigo-600/30 to-purple-600/30 border-sky-400/60 text-white shadow-neon-sm">
+                            class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between bg-gradient-to-r from-rose-600/30 via-pink-600/30 to-fuchsia-600/30 border-pink-400/60 text-white shadow-neon-sm">
                         <div>
-                            <span class="block text-xs uppercase tracking-wider text-sky-300">Fase 1</span>
+                            <span class="block text-xs uppercase tracking-wider text-pink-300">Fase 1</span>
                             <span class="text-sm sm:text-base font-bold">Semana 1: Apagando o Incêndio</span>
                         </div>
-                        <i data-lucide="flame" class="w-5 h-5 text-sky-400 shrink-0"></i>
+                        <i data-lucide="flame" class="w-5 h-5 text-pink-400 shrink-0"></i>
                     </button>
 
                     <button type="button" role="tab" id="tab-btn-2" onclick="selectPhaseTab(2)"
-                            class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-indigo-400/40">
+                            class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-pink-400/40">
                         <div>
                             <span class="block text-xs uppercase tracking-wider text-slate-400">Fase 2</span>
                             <span class="text-sm sm:text-base font-bold">Semana 2: Descanso e Metabolismo</span>
                         </div>
-                        <i data-lucide="moon" class="w-5 h-5 text-indigo-400 shrink-0"></i>
+                        <i data-lucide="moon" class="w-5 h-5 text-rose-400 shrink-0"></i>
                     </button>
 
                     <button type="button" role="tab" id="tab-btn-3" onclick="selectPhaseTab(3)"
-                            class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-indigo-400/40">
+                            class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-pink-400/40">
                         <div>
                             <span class="block text-xs uppercase tracking-wider text-slate-400">Fase 3</span>
                             <span class="text-sm sm:text-base font-bold">Semana 3: Força para a Vida Toda</span>
                         </div>
-                        <i data-lucide="shield" class="w-5 h-5 text-purple-400 shrink-0"></i>
+                        <i data-lucide="shield" class="w-5 h-5 text-rose-400 shrink-0"></i>
                     </button>
                 </div>
 
                 <!-- Panels -->
                 <div class="max-w-5xl mx-auto space-y-6">
                     <!-- FASE 1 PANEL -->
-                    <div id="phase-panel-1" class="glass-card rounded-3xl p-7 sm:p-10 border border-sky-400/30 shadow-neon-sm">
+                    <div id="phase-panel-1" class="glass-card rounded-3xl p-7 sm:p-10 border border-pink-400/30 shadow-neon-sm">
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                             <div class="lg:col-span-7 space-y-5">
-                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/15 border border-sky-400/30 text-xs font-semibold text-sky-300">
+                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/15 border border-pink-400/30 text-xs font-semibold text-pink-200">
                                     <i data-lucide="flame" class="w-4 h-4"></i>
                                     <span>Fase 1 • Apagando o Incêndio</span>
                                 </div>
@@ -638,21 +637,21 @@
                             </div>
 
                             <div class="lg:col-span-5 bg-slate-950/60 border border-white/10 rounded-2xl p-6 space-y-4">
-                                <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-sky-400 flex items-center gap-2">
+                                <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-pink-400 flex items-center gap-2">
                                     <i data-lucide="sparkles" class="w-4 h-4"></i>
                                     Metas Clínicas da Semana 1
                                 </h4>
                                 <ul class="space-y-3 text-sm text-slate-300">
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-pink-400 shrink-0 mt-0.5"></i>
                                         <span>Retirada de gatilhos térmicos (açúcar refinado, alimentos ultraprocessados e bebidas alcoólicas).</span>
                                     </li>
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-pink-400 shrink-0 mt-0.5"></i>
                                         <span>Protocolo de hidratação (35ml a 40ml/kg) com chá de sálvia ou amora ao entardecer.</span>
                                     </li>
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-pink-400 shrink-0 mt-0.5"></i>
                                         <span>Redução expressiva do inchaço abdominal e controle das oscilações de humor.</span>
                                     </li>
                                 </ul>
@@ -661,10 +660,10 @@
                     </div>
 
                     <!-- FASE 2 PANEL -->
-                    <div id="phase-panel-2" class="hidden glass-card rounded-3xl p-7 sm:p-10 border border-indigo-400/30 shadow-neon-sm">
+                    <div id="phase-panel-2" class="hidden glass-card rounded-3xl p-7 sm:p-10 border border-rose-400/30 shadow-neon-sm">
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                             <div class="lg:col-span-7 space-y-5">
-                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/15 border border-indigo-400/30 text-xs font-semibold text-indigo-300">
+                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/15 border border-rose-400/30 text-xs font-semibold text-pink-200">
                                     <i data-lucide="moon" class="w-4 h-4"></i>
                                     <span>Fase 2 • Descanso e Metabolismo</span>
                                 </div>
@@ -686,21 +685,21 @@
                             </div>
 
                             <div class="lg:col-span-5 bg-slate-950/60 border border-white/10 rounded-2xl p-6 space-y-4">
-                                <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-indigo-400 flex items-center gap-2">
+                                <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-rose-400 flex items-center gap-2">
                                     <i data-lucide="moon-star" class="w-4 h-4"></i>
                                     Metas Clínicas da Semana 2
                                 </h4>
                                 <ul class="space-y-3 text-sm text-slate-300">
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
                                         <span>Higiene do sono e modulação noturna do cortisol para evitar despertares noturnos.</span>
                                     </li>
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
                                         <span>Estabilização da curva de glicemia e insulina, acabando com a sonolência após o almoço.</span>
                                     </li>
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
                                         <span>Recuperação da disposição matinal e aumento natural do gasto calórico diário.</span>
                                     </li>
                                 </ul>
@@ -709,10 +708,10 @@
                     </div>
 
                     <!-- FASE 3 PANEL -->
-                    <div id="phase-panel-3" class="hidden glass-card rounded-3xl p-7 sm:p-10 border border-purple-400/30 shadow-neon-sm">
+                    <div id="phase-panel-3" class="hidden glass-card rounded-3xl p-7 sm:p-10 border border-fuchsia-400/30 shadow-neon-sm">
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                             <div class="lg:col-span-7 space-y-5">
-                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/15 border border-purple-400/30 text-xs font-semibold text-purple-300">
+                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/15 border border-fuchsia-400/30 text-xs font-semibold text-pink-300">
                                     <i data-lucide="shield" class="w-4 h-4"></i>
                                     <span>Fase 3 • Força para a Vida Toda</span>
                                 </div>
@@ -734,21 +733,21 @@
                             </div>
 
                             <div class="lg:col-span-5 bg-slate-950/60 border border-white/10 rounded-2xl p-6 space-y-4">
-                                <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-purple-400 flex items-center gap-2">
+                                <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-rose-400 flex items-center gap-2">
                                     <i data-lucide="dumbbell" class="w-4 h-4"></i>
                                     Metas Clínicas da Semana 3
                                 </h4>
                                 <ul class="space-y-3 text-sm text-slate-300">
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
                                         <span>Estímulo de força resistida adaptado para blindagem de articulações e densidade óssea.</span>
                                     </li>
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
                                         <span>Consolidação da massa magra com suporte de aminoácidos, creatina e colágeno.</span>
                                     </li>
                                     <li class="flex items-start gap-2.5">
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
                                         <span>Autonomia metabólica permanente com hábitos que sustentam o vigor feminino.</span>
                                     </li>
                                 </ul>
@@ -767,7 +766,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-sky-400 block mb-2">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-pink-400 block mb-2">
                         Nutrição Estratégica & Hormonal
                     </span>
                     <h2 class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight mb-4">
@@ -874,19 +873,19 @@
                 </div>
 
                 <!-- Dica Prática de Montagem do Prato -->
-                <div class="glass-card rounded-3xl p-7 sm:p-9 border border-indigo-500/30">
+                <div class="glass-card rounded-3xl p-7 sm:p-9 border border-pink-500/30">
                     <h3 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
-                        <i data-lucide="sparkles" class="w-5 h-5 text-sky-400"></i>
+                        <i data-lucide="sparkles" class="w-5 h-5 text-pink-400"></i>
                         A Regra do Prato Hormonalmente Inteligente
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-slate-300">
                         <div class="bg-slate-950/60 p-5 rounded-2xl border border-white/10">
-                            <span class="text-xl font-bold text-sky-400 block mb-1">50% do Prato</span>
+                            <span class="text-xl font-bold text-pink-400 block mb-1">50% do Prato</span>
                             <strong class="text-white block mb-1">Vegetais Variados</strong>
                             <p class="text-xs text-slate-400">Folhas verde-escuras, legumes coloridos e fontes abundantes de fibras prebióticas.</p>
                         </div>
                         <div class="bg-slate-950/60 p-5 rounded-2xl border border-white/10">
-                            <span class="text-xl font-bold text-purple-400 block mb-1">25% do Prato</span>
+                            <span class="text-xl font-bold text-rose-400 block mb-1">25% do Prato</span>
                             <strong class="text-white block mb-1">Proteína de Alto Valor</strong>
                             <p class="text-xs text-slate-400">Palma da mão de frango, peixe ou ovos para sustentar a regeneração muscular.</p>
                         </div>
@@ -908,7 +907,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-sky-400 block mb-2">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-pink-400 block mb-2">
                         Musculação & Mobilidade
                     </span>
                     <h2 class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight mb-4">
@@ -922,19 +921,19 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     
                     <!-- Ficha A -->
-                    <div class="glass-card rounded-3xl p-7 border border-sky-400/30 flex flex-col justify-between">
+                    <div class="glass-card rounded-3xl p-7 border border-pink-400/30 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="px-3 py-1 rounded-full bg-sky-500/15 border border-sky-400/30 text-xs font-bold text-sky-300">Treino A</span>
-                                <i data-lucide="dumbbell" class="w-5 h-5 text-sky-400"></i>
+                                <span class="px-3 py-1 rounded-full bg-pink-500/15 border border-pink-400/30 text-xs font-bold text-pink-200">Treino A</span>
+                                <i data-lucide="dumbbell" class="w-5 h-5 text-pink-400"></i>
                             </div>
                             <h3 class="font-display font-bold text-lg text-white mb-2">Membros Inferiores & Glúteos</h3>
                             <p class="text-xs text-slate-300 mb-5">Estímulo primordial para grandes grupos musculares e proteção da bacia e fêmur.</p>
                             <ul class="space-y-2.5 text-xs text-slate-200">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Agachamento com apoio / livre: 3x 12 rep</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Elevação pélvica: 3x 15 rep</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Afundo estático ou passada: 3x 10 cada perna</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Panturrilha em pé: 3x 20 rep</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Agachamento com apoio / livre: 3x 12 rep</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Elevação pélvica: 3x 15 rep</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Afundo estático ou passada: 3x 10 cada perna</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Panturrilha em pé: 3x 20 rep</li>
                             </ul>
                         </div>
                         <div class="mt-6 pt-4 border-t border-white/10 text-xs text-slate-400">
@@ -943,19 +942,19 @@
                     </div>
 
                     <!-- Ficha B -->
-                    <div class="glass-card rounded-3xl p-7 border border-indigo-400/30 flex flex-col justify-between">
+                    <div class="glass-card rounded-3xl p-7 border border-rose-400/30 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-400/30 text-xs font-bold text-indigo-300">Treino B</span>
-                                <i data-lucide="activity" class="w-5 h-5 text-indigo-400"></i>
+                                <span class="px-3 py-1 rounded-full bg-rose-500/15 border border-rose-400/30 text-xs font-bold text-rose-200">Treino B</span>
+                                <i data-lucide="activity" class="w-5 h-5 text-rose-400"></i>
                             </div>
                             <h3 class="font-display font-bold text-lg text-white mb-2">Membros Superiores & Costas</h3>
                             <p class="text-xs text-slate-300 mb-5">Fortalece a cadeia dorsal, melhora a postura e dá firmeza aos braços e ombros.</p>
                             <ul class="space-y-2.5 text-xs text-slate-200">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Remada curvada (halteres/elástico): 3x 12 rep</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Desenvolvimento de ombros: 3x 10 rep</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Tríceps banco ou francês: 3x 12 rep</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Rosca bíceps com cadência controlada: 3x 12 rep</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Remada curvada (halteres/elástico): 3x 12 rep</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Desenvolvimento de ombros: 3x 10 rep</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Tríceps banco ou francês: 3x 12 rep</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Rosca bíceps com cadência controlada: 3x 12 rep</li>
                             </ul>
                         </div>
                         <div class="mt-6 pt-4 border-t border-white/10 text-xs text-slate-400">
@@ -964,19 +963,19 @@
                     </div>
 
                     <!-- Alongamento -->
-                    <div class="glass-card rounded-3xl p-7 border border-purple-400/30 flex flex-col justify-between">
+                    <div class="glass-card rounded-3xl p-7 border border-fuchsia-400/30 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="px-3 py-1 rounded-full bg-purple-500/15 border border-purple-400/30 text-xs font-bold text-purple-300">Mobilidade</span>
-                                <i data-lucide="heart-pulse" class="w-5 h-5 text-purple-400"></i>
+                                <span class="px-3 py-1 rounded-full bg-purple-500/15 border border-fuchsia-400/30 text-xs font-bold text-pink-300">Mobilidade</span>
+                                <i data-lucide="heart-pulse" class="w-5 h-5 text-rose-400"></i>
                             </div>
                             <h3 class="font-display font-bold text-lg text-white mb-2">Alongamento & Relaxamento</h3>
                             <p class="text-xs text-slate-300 mb-5">Alivia a tensão lombar e cervical, preparando as articulações para o dia.</p>
                             <ul class="space-y-2.5 text-xs text-slate-200">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Alongamento de panturrilha na parede: 30s</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Alongamento posterior de coxa: 30s</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Abertura peitoral e trapézio: 30s</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Respiração diafragmática profunda: 3 minutos</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Alongamento de panturrilha na parede: 30s</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Alongamento posterior de coxa: 30s</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Abertura peitoral e trapézio: 30s</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Respiração diafragmática profunda: 3 minutos</li>
                             </ul>
                         </div>
                         <div class="mt-6 pt-4 border-t border-white/10 text-xs text-slate-400">
@@ -996,7 +995,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 
                 <div class="text-center max-w-3xl mx-auto mb-10">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-violet-400 block mb-2">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-pink-400 block mb-2">
                         Fitoterapia & Nutracêuticos
                     </span>
                     <h2 class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight mb-4">
@@ -1019,10 +1018,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     
                     <!-- Suplemento 1 -->
-                    <div class="glass-card rounded-3xl p-7 border border-indigo-400/30">
+                    <div class="glass-card rounded-3xl p-7 border border-rose-400/30">
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-sky-400">Noite & Sono</span>
-                            <i data-lucide="moon" class="w-5 h-5 text-indigo-400"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-400">Noite & Sono</span>
+                            <i data-lucide="moon" class="w-5 h-5 text-rose-400"></i>
                         </div>
                         <h3 class="font-display font-bold text-lg text-white mb-2">Magnésio Bisglicinato ou Inositol</h3>
                         <p class="text-xs text-slate-300 mb-4 leading-relaxed">
@@ -1034,10 +1033,10 @@
                     </div>
 
                     <!-- Suplemento 2 -->
-                    <div class="glass-card rounded-3xl p-7 border border-purple-400/30">
+                    <div class="glass-card rounded-3xl p-7 border border-fuchsia-400/30">
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-purple-300">Fogachos & Calor</span>
-                            <i data-lucide="sparkles" class="w-5 h-5 text-purple-400"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-300">Fogachos & Calor</span>
+                            <i data-lucide="sparkles" class="w-5 h-5 text-rose-400"></i>
                         </div>
                         <h3 class="font-display font-bold text-lg text-white mb-2">Infusão de Sálvia & Chá de Amora</h3>
                         <p class="text-xs text-slate-300 mb-4 leading-relaxed">
@@ -1064,10 +1063,10 @@
                     </div>
 
                     <!-- Suplemento 4 -->
-                    <div class="glass-card rounded-3xl p-7 border border-sky-400/30">
+                    <div class="glass-card rounded-3xl p-7 border border-pink-400/30">
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-sky-300">Pele & Articulações</span>
-                            <i data-lucide="droplet" class="w-5 h-5 text-sky-400"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-300">Pele & Articulações</span>
+                            <i data-lucide="droplet" class="w-5 h-5 text-pink-400"></i>
                         </div>
                         <h3 class="font-display font-bold text-lg text-white mb-2">Peptídeos de Colágeno + Vitamina C</h3>
                         <p class="text-xs text-slate-300 mb-4 leading-relaxed">
@@ -1120,7 +1119,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-sky-400 block mb-2">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-pink-400 block mb-2">
                         Bioimpedância & Hidratação Terapêutica
                     </span>
                     <h2 class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight mb-4">
@@ -1134,9 +1133,9 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
                     
                     <!-- Form -->
-                    <div class="lg:col-span-6 glass-card rounded-3xl p-7 sm:p-9 border border-indigo-400/30">
+                    <div class="lg:col-span-6 glass-card rounded-3xl p-7 sm:p-9 border border-rose-400/30">
                         <h3 class="font-display font-bold text-xl text-white mb-6 flex items-center gap-2.5">
-                            <i data-lucide="sliders" class="w-5 h-5 text-sky-400"></i>
+                            <i data-lucide="sliders" class="w-5 h-5 text-pink-400"></i>
                             Insira Seus Dados
                         </h3>
 
@@ -1144,28 +1143,28 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-medium text-slate-300 mb-1.5" for="input-weight">Seu Peso (kg)</label>
-                                    <input type="number" id="input-weight" value="68" step="0.1" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-sky-400 focus:outline-none transition-colors">
+                                    <input type="number" id="input-weight" value="68" step="0.1" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-pink-400 focus:outline-none transition-colors">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-medium text-slate-300 mb-1.5" for="input-height">Sua Altura (cm)</label>
-                                    <input type="number" id="input-height" value="165" step="1" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-sky-400 focus:outline-none transition-colors">
+                                    <input type="number" id="input-height" value="165" step="1" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-pink-400 focus:outline-none transition-colors">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-medium text-slate-300 mb-1.5" for="input-waist">Cintura (cm)</label>
-                                    <input type="number" id="input-waist" value="78" step="0.5" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-sky-400 focus:outline-none transition-colors">
+                                    <input type="number" id="input-waist" value="78" step="0.5" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-pink-400 focus:outline-none transition-colors">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-medium text-slate-300 mb-1.5" for="input-hip">Quadril (cm)</label>
-                                    <input type="number" id="input-hip" value="98" step="0.5" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-sky-400 focus:outline-none transition-colors">
+                                    <input type="number" id="input-hip" value="98" step="0.5" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-pink-400 focus:outline-none transition-colors">
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-xs font-medium text-slate-300 mb-1.5" for="input-activity">Nível de Atividade & Clima</label>
-                                <select id="input-activity" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-sky-400 focus:outline-none transition-colors">
+                                <select id="input-activity" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-pink-400 focus:outline-none transition-colors">
                                     <option value="35">Padrão Terapêutico (35ml por kg)</option>
                                     <option value="40" selected>Dias Quentes ou Treino Moderado (40ml por kg)</option>
                                     <option value="45">Atividade Intensa / Muita Transpiração (45ml por kg)</option>
@@ -1182,11 +1181,11 @@
                     <!-- Resultados -->
                     <div class="lg:col-span-6 space-y-6">
                         <!-- Card Meta de Água -->
-                        <div class="glass-card rounded-3xl p-7 border border-sky-400/40 relative overflow-hidden">
-                            <div class="pointer-events-none absolute -right-10 -bottom-10 w-40 h-40 bg-sky-500/15 blur-2xl rounded-full"></div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-sky-400 block mb-1">Hidratação Celular</span>
+                        <div class="glass-card rounded-3xl p-7 border border-pink-400/40 relative overflow-hidden">
+                            <div class="pointer-events-none absolute -right-10 -bottom-10 w-40 h-40 bg-rose-500/15 blur-2xl rounded-full"></div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-400 block mb-1">Hidratação Celular</span>
                             <h4 class="font-display font-bold text-2xl text-white mb-2">
-                                <span id="res-water-ml" class="text-3xl sm:text-4xl text-sky-300 font-extrabold">2.720</span> ml de água por dia
+                                <span id="res-water-ml" class="text-3xl sm:text-4xl text-pink-300 font-extrabold">2.720</span> ml de água por dia
                             </h4>
                             <p class="text-xs text-slate-300 mb-4">
                                 Equivalente a aproximadamente <strong id="res-water-glasses" class="text-white">11 copos de 250ml</strong> distribuídos ao longo do dia.
@@ -1197,7 +1196,7 @@
                         </div>
 
                         <!-- Card IMC & RCQ -->
-                        <div class="glass-card rounded-3xl p-7 border border-indigo-400/30">
+                        <div class="glass-card rounded-3xl p-7 border border-rose-400/30">
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Seu IMC</span>
@@ -1225,8 +1224,8 @@
              BANNER SUPORTE WHATSAPP (FIXO EM TODAS AS TELAS)
         =========================================== -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-            <div class="glass-card rounded-3xl p-7 sm:p-9 border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
-                <div class="pointer-events-none absolute -left-16 -bottom-16 w-60 h-60 bg-sky-500/15 blur-3xl rounded-full"></div>
+            <div class="glass-card rounded-3xl p-7 sm:p-9 border border-pink-500/30 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <div class="pointer-events-none absolute -left-16 -bottom-16 w-60 h-60 bg-pink-500/15 blur-3xl rounded-full"></div>
                 <div class="flex items-start sm:items-center gap-5">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-300 shrink-0 shadow-neon-sm">
                         <i data-lucide="headset" class="w-7 h-7"></i>
@@ -1270,10 +1269,10 @@
          MODAL DO VÍDEO DE BOAS-VINDAS
     =========================================== -->
     <div id="video-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl" role="dialog" aria-modal="true">
-        <div class="relative w-full max-w-4xl glass-card rounded-3xl border border-indigo-400/40 shadow-neon-lg overflow-hidden">
+        <div class="relative w-full max-w-4xl glass-card rounded-3xl border border-pink-400/40 shadow-neon-lg overflow-hidden">
             <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-950/80">
                 <div class="flex items-center gap-2.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-pink-400 animate-pulse"></span>
                     <h3 class="font-display font-bold text-base sm:text-lg text-white">
                         Aula Inaugural — Protocolo Menopausa (Clínica Ale Zorzan)
                     </h3>
@@ -1283,7 +1282,7 @@
                 </button>
             </div>
 
-            <div class="aspect-video w-full bg-navy-950 relative flex flex-col items-center justify-center p-6 text-center">
+            <div class="aspect-video w-full bg-plum-950 relative flex flex-col items-center justify-center p-6 text-center">
                 <video id="protocol-video" class="w-full h-full object-cover rounded-b-none" controls playsinline>
                     <source src="../Página DF21/hero_video_hq.mp4" type="video/mp4">
                 </video>
@@ -1298,7 +1297,7 @@
         <div class="relative w-full max-w-2xl glass-card rounded-3xl border border-purple-400/40 shadow-neon-lg overflow-hidden p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
             <div class="flex items-start justify-between gap-4 mb-5">
                 <div>
-                    <span id="module-modal-badge" class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-1">Módulo 01</span>
+                    <span id="module-modal-badge" class="text-xs font-bold uppercase tracking-widest text-pink-400 block mb-1">Módulo 01</span>
                     <h3 id="module-modal-title" class="font-display font-bold text-2xl text-white">Título do Módulo</h3>
                 </div>
                 <button type="button" onclick="closeModuleModal()" class="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white transition-colors" aria-label="Fechar modal">
@@ -1309,8 +1308,8 @@
             <p id="module-modal-desc" class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6"></p>
 
             <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-5 mb-6">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-300 mb-3 flex items-center gap-2">
-                    <i data-lucide="list-checks" class="w-4 h-4 text-sky-400"></i>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-pink-300 mb-3 flex items-center gap-2">
+                    <i data-lucide="list-checks" class="w-4 h-4 text-pink-400"></i>
                     <span>Checklist Prático deste Módulo</span>
                 </h4>
                 <ul id="module-modal-DynamicList" class="space-y-2.5 text-sm text-slate-200"></ul>
@@ -1366,10 +1365,10 @@
                 const panel = document.getElementById(`phase-panel-${i}`);
 
                 if (i === phaseIndex) {
-                    btn.className = "phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between bg-gradient-to-r from-blue-600/30 via-indigo-600/30 to-purple-600/30 border-sky-400/60 text-white shadow-neon-sm";
+                    btn.className = "phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between bg-gradient-to-r from-rose-600/30 via-pink-600/30 to-fuchsia-600/30 border-pink-400/60 text-white shadow-neon-sm";
                     panel.classList.remove('hidden');
                 } else {
-                    btn.className = "phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-indigo-400/40";
+                    btn.className = "phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-pink-400/40";
                     panel.classList.add('hidden');
                 }
             }
@@ -1423,7 +1422,7 @@
             const listEl = document.getElementById('module-modal-DynamicList');
             listEl.innerHTML = data.items.map(item => `
                 <li class="flex items-start gap-2.5">
-                    <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-1"></i>
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-pink-400 shrink-0 mt-1"></i>
                     <span>${item}</span>
                 </li>
             `).join('');
