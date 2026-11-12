@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Menopausa | Ale Zorzan — Área de Membros</title>
+    <meta name="description" content="Área de membros oficial do Protocolo Menopausa da Clínica Ale Zorzan.Um passo a passo prático de 21 dias para recuperar o controle do seu corpo.">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['system-ui','-apple-system','BlinkMacSystemFont','Segoe UI','Roboto','sans-serif'],
+                        display: ['system-ui','-apple-system','BlinkMacSystemFont','Segoe UI','Roboto','sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0a1636',
+                            900: '#060d24',
+                            950: '#020614',
+                        },
+                        neon: {
+                            blue: '#38bdf8',
+                            indigo: '#6366f1',
+                            purple: '#a855f7',
+                        }
+                    },
+                    boxShadow: {
+                        'neon-sm': '0 0 15px -3px rgba(99, 102, 241, 0.35), 0 0 6px -2px rgba(168, 85, 247, 0.25)',
+                        'neon-md': '0 0 25px -4px rgba(56, 189, 248, 0.4), 0 0 15px -3px rgba(168, 85, 247, 0.35)',
+                        'neon-lg': '0 0 40px -5px rgba(99, 102, 241, 0.5), 0 0 20px -4px rgba(168, 85, 247, 0.45)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Dark Navy to Black Gradient & Ambient Glow */
+        body {
+            background-color: #020510;
+            background-image: 
+                radial-gradient(circle at 15% 10%, rgba(30, 58, 138, 0.28) 0%, transparent 45%),
+                radial-gradient(circle at 85% 25%, rgba(109, 40, 217, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(15, 23, 42, 0.6) 0%, transparent 60%),
+                linear-gradient(180deg, #040B22 0%, #020510 55%, #000000 100%);
+            background-attachment: fixed;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Surfaces */
+        .glass-header {
+            background: rgba(4, 11, 34, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.55) 0%, rgba(6, 13, 36, 0.38) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-interactive:hover {
+            transform: translateY(-6px);
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.65) 0%, rgba(15, 23, 42, 0.5) 100%);
+            border-color: rgba(139, 92, 246, 0.55);
+            box-shadow: 
+                0 12px 32px -8px rgba(0, 0, 0, 0.7),
+                0 0 24px -4px rgba(56, 189, 248, 0.28),
+                0 0 16px -2px rgba(168, 85, 247, 0.32),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+        }
+
+        /* Neon Primary Action Button */
+        .btn-neon {
+            background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #9333ea 100%);
+            background-size: 200% 200%;
+            border: 1px solid rgba(168, 85, 247, 0.45);
+            box-shadow: 0 0 20px -3px rgba(99, 102, 241, 0.45), 0 0 10px -2px rgba(168, 85, 247, 0.35);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-neon:hover {
+            background-position: right center;
+            transform: translateY(-2px) scale(1.01);
+            border-color: rgba(56, 189, 248, 0.8);
+            box-shadow: 0 0 30px -2px rgba(56, 189, 248, 0.55), 0 0 18px 0px rgba(168, 85, 247, 0.5);
+        }
+
+        .btn-neon:active {
+            transform: translateY(0) scale(0.99);
+        }
+
+        /* Scroll-driven Reveal Animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar for Day Carousel */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Pulse Ring for Video Play Button */
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6), 0 0 25px 2px rgba(168, 85, 247, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 0 16px rgba(99, 102, 241, 0), 0 0 35px 6px rgba(56, 189, 248, 0.65);
+            }
+        }
+        .play-pulse {
+            animation: pulse-glow 2.6s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        }
+
+        /* Custom Scrollbar for Page */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020510;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+
+        /* ===== Apple-design refinements ===== */
+        :root {
+            --ease-out-spring: cubic-bezier(0.32, 0.72, 0, 1); /* critically damped feel, no overshoot */
+        }
+        html { -webkit-text-size-adjust: 100%; }
+        body { font-optical-sizing: auto; line-height: 1.5; letter-spacing: 0; -webkit-font-smoothing: antialiased; }
+
+        /* Typography: tracking & leading shrink as size grows */
+        h1 { letter-spacing: -0.03em; line-height: 1.08; text-wrap: balance; }
+        h2 { letter-spacing: -0.022em; line-height: 1.12; text-wrap: balance; }
+        h3 { letter-spacing: -0.012em; line-height: 1.25; }
+        p  { text-wrap: pretty; }
+        .text-xs, .text-\[11px\], .text-\[10px\] { letter-spacing: 0.01em; }
+        .uppercase { letter-spacing: 0.08em; }
+        h1 { font-weight: 700; }
+
+        /* Material: thin chrome, bright top edge, scroll-edge fade instead of hard divider */
+        .glass-header {
+            background: rgba(4, 11, 34, 0.55);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 0;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+        }
+        .glass-header::after {
+            content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 28px; pointer-events: none;
+            background: linear-gradient(to bottom, rgba(2,5,16,0.55), transparent);
+        }
+        .glass-card {
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-top-color: rgba(255,255,255,0.16);
+            box-shadow: 0 8px 24px -12px rgba(0,0,0,0.6);
+            transition: transform 0.45s var(--ease-out-spring), box-shadow 0.45s var(--ease-out-spring), border-color 0.3s ease, background 0.3s ease;
+        }
+        /* Nested surfaces: no light-on-light stacking */
+        .glass-card .glass-card { backdrop-filter: none; background: rgba(2,6,23,0.55); }
+
+        /* Hover only where a real pointer exists (no sticky hover on touch) */
+        @media (hover: none) {
+            .glass-card-interactive:hover { transform: none; box-shadow: 0 8px 24px -12px rgba(0,0,0,0.6); border-color: rgba(255,255,255,0.07); }
+            .btn-neon:hover { transform: none; }
+        }
+
+        /* Instant press feedback (respond on pointer-down) */
+        .glass-card-interactive:active { transform: scale(0.98); transition-duration: 0.1s; }
+        .btn-neon, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+        .btn-neon { transition: transform 0.4s var(--ease-out-spring), box-shadow 0.4s var(--ease-out-spring), border-color 0.3s ease, background-position 0.5s ease; }
+        .btn-neon:active, button:active { transform: scale(0.97); transition-duration: 0.1s; }
+        :focus-visible { outline: 2px solid #38bdf8; outline-offset: 3px; border-radius: 12px; }
+
+        /* Reveal: spring-like curve, smaller travel */
+        .reveal-on-scroll { transform: translateY(20px); transition: opacity 0.7s var(--ease-out-spring), transform 0.9s var(--ease-out-spring); }
+
+
+        /* Modals: scrim + materialize (blur + scale together) */
+        #video-modal, #module-modal { background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        @keyframes materialize { from { opacity: 0; transform: scale(0.96); filter: blur(8px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
+        @keyframes scrim-in { from { opacity: 0; } to { opacity: 1; } }
+        #video-modal.flex, #module-modal.flex { animation: scrim-in 0.25s ease-out; }
+        #video-modal.flex > div, #module-modal.flex > div { animation: materialize 0.45s var(--ease-out-spring); transform-origin: center; }
+        #video-modal .glass-card, #module-modal.glass-card { background: rgba(8,14,34,0.88); }
+        #module-modal > div, #video-modal > div { background: rgba(8,14,34,0.88); }
+
+        /* Reduce neon intensity on resting state: glow only on interaction */
+        .shadow-neon-sm { --tw-shadow: 0 0 14px -4px rgba(99,102,241,0.3); }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+            .reveal-on-scroll { transform: none; transition: opacity 0.3s ease; }
+            .glass-card-interactive:hover, .btn-neon:hover { transform: none; }
+            .play-pulse { animation: none; }
+            #video-modal.flex > div, #module-modal.flex > div { animation: scrim-in 0.2s ease-out; }
+        }
+        @media (prefers-reduced-transparency: reduce) {
+            .glass-header, .glass-card, #video-modal, #module-modal { backdrop-filter: none; -webkit-backdrop-filter: none; }
+            .glass-header { background: #040b22; }
+            .glass-card { background: #0b1330; }
+        }
+        @media (prefers-contrast: more) {
+            .glass-card, .glass-header { background: #060d24; border-color: rgba(255,255,255,0.5); }
+            .text-slate-400, .text-slate-300 { color: #e2e8f0; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-indigo-500/30 selection:text-sky-200 min-h-screen flex flex-col">
+
+    <!-- ==========================================
+         HEADER FIXA (GLASSMORPHISM)
+    =========================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Left: Brand Logo -->
+            <a href="#inicio" class="flex items-center group focus:outline-none">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <span class="font-display font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                            Protocolo Menopausa
+                        </span>
+                        <span class="hidden sm:inline-block text-slate-600 font-light">|</span>
+                        <span class="hidden sm:inline-block text-xs font-medium uppercase tracking-widest text-indigo-300/90">
+                            Ale Zorzan
+                        </span>
+                    </div>
+                    <span class="sm:hidden text-[11px] font-medium uppercase tracking-widest text-indigo-300/80">
+                        Clínica Ale Zorzan
+                    </span>
+                </div>
+            </a>
+
+            <!-- Center: Anchor Links (Desktop) -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2 bg-slate-900/50 border border-white/10 rounded-full px-3 py-1.5 backdrop-blur-md" aria-label="Navegação Principal">
+                <a href="#inicio" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-200 hover:text-white hover:bg-white/5 transition-all">
+                    Boas-vindas
+                </a>
+                <a href="#modulos" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                    Central de Acesso
+                </a>
+                <a href="#fases" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                    As 3 Fases
+                </a>
+            </nav>
+
+            <!-- Right: Action CTA & Mobile Menu Button -->
+            <div class="flex items-center gap-3">
+                <a href="#modulos" 
+                   class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-indigo-500/35 hover:border-sky-400/70 shadow-neon-sm text-xs font-semibold text-slate-100 hover:text-white transition-all">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-sky-400"></i>
+                    <span>Ver Módulos</span>
+                </a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-xl bg-slate-900/70 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400/50 transition-all" aria-label="Abrir menu">
+                    <i data-lucide="menu" class="w-5 h-5" id="mobile-menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-navy-950/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-2">
+            <a href="#inicio" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+                Boas-Vindas
+            </a>
+            <a href="#modulos" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+                Central de Acesso (6 Módulos)
+            </a>
+            <a href="#fases" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-indigo-500/15 hover:text-sky-300 transition-all">
+                As 3 Fases do Protocolo
+            </a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+    <main class="flex-grow pt-28 pb-20">
+
+        <!-- ==========================================
+             1. HERO SECTION (A PRIMEIRA IMPRESSÃO)
+        =========================================== -->
+        <section id="inicio" class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16">
+            
+            <!-- Ambient Decorative Glows -->
+            <div class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-[340px] sm:w-[620px] h-[280px] bg-gradient-to-tr from-blue-600/20 via-indigo-600/15 to-purple-600/20 blur-[110px] rounded-full -z-10"></div>
+
+            <div class="text-center max-w-4xl mx-auto reveal-on-scroll is-visible">
+                <!-- Tagline Pill -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-400/30 text-xs sm:text-sm font-medium text-sky-300 mb-6 shadow-neon-sm">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-purple-400"></i>
+                    <span>Área Exclusiva da Aluna • Clínica Ale Zorzan</span>
+                </div>
+
+                <!-- Título Principal Oficial -->
+                <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[56px] text-white mb-10">
+                    Bem-vinda à melhor fase da sua vida. 
+                    <span class="bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
+                        Sem calores, sem cansaço e com o metabolismo funcionando a seu favor.
+                    </span>
+                </h1>
+
+                <!-- Featured Video Player Container (Gatilho do Modal de Vídeo) -->
+                <div class="relative max-w-4xl mx-auto mb-10 group">
+                    <!-- Neon Outer Halo -->
+                    <div class=" -inset-0.5 bg-gradient-to-r from-sky-500/40 via-indigo-500/40 to-purple-600/40 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-500 absolute"></div>
+                    
+                    <div onclick="openVideoModal()" 
+                         role="button"
+                         tabindex="0"
+                         onkeydown="if(event.key==='Enter'||event.key===' ') openVideoModal()"
+                         aria-label="Reproduzir aula de boas-vindas do Protocolo Menopausa"
+                         class="relative aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden glass-card border border-white/15 group-hover:border-sky-400/60 cursor-pointer flex flex-col justify-between p-6 sm:p-10 text-left shadow-2xl">
+                        
+                        <!-- Simulated Video Cinematic Backdrop -->
+                        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/50 via-navy-950/90 to-black z-0"></div>
+                        <div class="absolute inset-0 opacity-25 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+
+                        <!-- Top Bar inside Video Preview -->
+                        <div class="relative z-10 flex items-center justify-between">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-xs font-medium text-slate-200">
+                                <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                                Vídeo de Boas-Vindas • Comece Aqui
+                            </span>
+                            
+                        </div>
+
+                        <!-- Center Play Button -->
+                        <div class="relative z-10 my-auto flex flex-col items-center justify-center text-center py-4">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white play-pulse group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="play" class="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1"></i>
+                            </div>
+                            <span class="mt-4 text-xs sm:text-sm font-semibold uppercase tracking-widest text-sky-300 group-hover:text-white transition-colors">
+                                Clique para assistir à orientação inicial
+                            </span>
+                        </div>
+
+                        <!-- Bottom Video Caption -->
+                        <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-3 border-t border-white/10">
+                            <div>
+                                <p class="text-sm sm:text-base font-semibold text-white">Abertura Oficial: O Mapa da Sua Transformação</p>
+                                <p class="text-xs text-slate-400">Com Equipe Médica & Nutricional — Clínica Ale Zorzan</p>
+                            </div>
+                            <div class="inline-flex items-center gap-1.5 text-xs font-medium text-purple-300">
+                                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                                <span>Abrir em tela cheia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subtítulo Oficial (Abaixo do vídeo) -->
+                <p class="text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto mb-10">
+                    O Protocolo Menopausa não é sobre aceitar os sintomas de braços cruzados. É um passo a passo prático de 21 dias para você recuperar o controle do seu corpo, proteger a sua massa muscular e voltar a dormir bem de verdade.
+                </p>
+
+                <!-- Hero CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#modulos" class="w-full sm:w-auto btn-neon px-8 py-4 rounded-2xl font-display font-semibold text-white text-sm sm:text-base flex items-center justify-center gap-3">
+                        <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                        <span>Acessar os 6 Módulos Agora</span>
+                    </a>
+                    <button type="button" onclick="openVideoModal()" class="w-full sm:w-auto px-7 py-4 rounded-2xl glass-card hover:border-sky-400/50 text-slate-200 hover:text-white font-display font-medium text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all">
+                        <i data-lucide="play-circle" class="w-5 h-5 text-sky-400"></i>
+                        <span>Assistir Aula Inaugural</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             2. CENTRAL DE ACESSO (OS 6 MÓDULOS DO GRID)
+        =========================================== -->
+        <section id="modulos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal-on-scroll">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-sky-400 block mb-2">
+                        Hub da Aluna • 6 Pilares Integrados
+                    </span>
+                    <h2 class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight">
+                        Central de Acesso
+                    </h2>
+                </div>
+                <p class="text-sm text-slate-400 max-w-md">
+                    Clique em qualquer módulo abaixo para acessar o conteúdo prático, guias de acompanhamento e ferramentas exclusivas.
+                </p>
+            </div>
+
+            <!-- Responsive 6-Card Grid (Mobile First: 1 col -> 2 cols -> 3 cols) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Módulo 1 -->
+                <article onclick="openModuleModal(1)" tabindex="0" role="button" onkeydown="if(event.key==='Enter') openModuleModal(1)"
+                         class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-blue-500/15 border border-blue-400/30 text-sky-400 group-hover:bg-blue-500/25 group-hover:border-sky-400 group-hover:shadow-neon-sm transition-all">
+                                <i data-lucide="compass" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-sky-400/40 group-hover:text-sky-300 transition-colors">
+                                Módulo 01
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-sky-300 transition-colors">
+                            O Passo a Passo da Nova Fase
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
+                            Entenda exatamente o que está acontecendo com os seus hormônios agora e como nós vamos agir, semana a semana, para silenciar os sintomas do climatério e da menopausa.
+                        </p>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <span>Mapa Hormonal • Guia 21 Dias</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
+                    </div>
+                </article>
+
+                <!-- Módulo 2 -->
+                <article onclick="openModuleModal(2)" tabindex="0" role="button" onkeydown="if(event.key==='Enter') openModuleModal(2)"
+                         class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-indigo-500/15 border border-indigo-400/30 text-indigo-300 group-hover:bg-indigo-500/25 group-hover:border-indigo-400 group-hover:shadow-neon-sm transition-all">
+                                <i data-lucide="utensils" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-indigo-400/40 group-hover:text-indigo-200 transition-colors">
+                                Módulo 02
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-indigo-300 transition-colors">
+                            Alimentação a seu Favor
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
+                            Esqueça as dietas malucas. Aqui você vai aprender a usar alimentos estratégicos, controlar a insulina e proteger os seus ossos comendo comida de verdade, simples e muito saborosa.
+                        </p>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <span>Cardápios • Controle de Insulina</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
+                    </div>
+                </article>
+
+                <!-- Módulo 3 -->
+                <article onclick="openModuleModal(3)" tabindex="0" role="button" onkeydown="if(event.key==='Enter') openModuleModal(3)"
+                         class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-purple-500/15 border border-purple-400/30 text-purple-300 group-hover:bg-purple-500/25 group-hover:border-purple-400 group-hover:shadow-neon-sm transition-all">
+                                <i data-lucide="moon-star" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-purple-400/40 group-hover:text-purple-200 transition-colors">
+                                Módulo 03
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-purple-300 transition-colors">
+                            O Fim da Insônia e do Calor
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
+                            Um mapa diário para você acompanhar a diminuição rápida das ondas de calor, a melhora do seu humor e o resgate daquelas noites de sono profundo que você não tem faz tempo.
+                        </p>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <span>Rastreador de Fogachos & Sono</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
+                    </div>
+                </article>
+
+                <!-- Módulo 4 -->
+                <article onclick="openModuleModal(4)" tabindex="0" role="button" onkeydown="if(event.key==='Enter') openModuleModal(4)"
+                         class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-sky-500/15 border border-sky-400/30 text-sky-300 group-hover:bg-sky-500/25 group-hover:border-sky-400 group-hover:shadow-neon-sm transition-all">
+                                <i data-lucide="dumbbell" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-sky-400/40 group-hover:text-sky-200 transition-colors">
+                                Módulo 04
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-sky-300 transition-colors">
+                            Força é a sua Nova Proteção
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
+                            O segredo real para combater a flacidez e a perda óssea. Você terá acesso a treinos de musculação pensados para o seu momento, que protegem as articulações e aceleram o seu metabolismo.
+                        </p>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <span>Treinos Guiados • Proteção Óssea</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
+                    </div>
+                </article>
+
+                <!-- Módulo 5 -->
+                <article onclick="openModuleModal(5)" tabindex="0" role="button" onkeydown="if(event.key==='Enter') openModuleModal(5)"
+                         class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-violet-500/15 border border-violet-400/30 text-violet-300 group-hover:bg-violet-500/25 group-hover:border-violet-400 group-hover:shadow-neon-sm transition-all">
+                                <i data-lucide="droplets" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-violet-400/40 group-hover:text-violet-200 transition-colors">
+                                Módulo 05
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-violet-300 transition-colors">
+                            O Suporte que o Corpo Pede
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
+                            Descubra quais vitaminas e suplementos realmente importam nessa fase e como a hidratação certa vai eliminar o inchaço e devolver o viço da sua pele.
+                        </p>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-300 group-hover:text-sky-300">
+                        <span>Suplementos • Calculadora H₂O</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
+                    </div>
+                </article>
+
+                <!-- Módulo 6 -->
+                <article onclick="openModuleModal(6)" tabindex="0" role="button" onkeydown="if(event.key==='Enter') openModuleModal(6)"
+                         class="glass-card glass-card-interactive rounded-3xl p-7 flex flex-col justify-between cursor-pointer group relative overflow-hidden">
+                    <div class="pointer-events-none absolute -right-10 -bottom-10 w-36 h-36 bg-indigo-500/15 blur-2xl rounded-full"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 group-hover:bg-emerald-500/25 group-hover:border-emerald-400 group-hover:shadow-neon-sm transition-all">
+                                <i data-lucide="message-circle-heart" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-400/30">
+                                Módulo 06 • VIP
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-emerald-300 transition-colors">
+                            Você Nunca Está Sozinha
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed">
+                            Bateu alguma dúvida no meio do processo? A nossa equipe clínica está a um clique de distância no WhatsApp para pegar na sua mão e te ajudar no que for preciso.
+                        </p>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-emerald-300 group-hover:text-emerald-200">
+                        <span>Canal Direto Clínica Ale Zorzan</span>
+                        <i data-lucide="external-link" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             4. AS 3 FASES DO PROTOCOLO (CONTROLE DE ABAS)
+        =========================================== -->
+        <section id="fases" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal-on-scroll">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-semibold uppercase tracking-widest text-purple-400 block mb-2">
+                    Detalhes da Jornada • 21 Dias
+                </span>
+                <h2 class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight mb-4">
+                    As 3 Fases do Protocolo
+                </h2>
+                <p class="text-sm sm:text-base text-slate-400">
+                    Alterne entre as semanas abaixo para visualizar o foco clínico, as metas diárias e os pilares de cada etapa da sua transformação.
+                </p>
+            </div>
+
+            <!-- Interactive Phase Tabs Selector -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto mb-8" role="tablist" aria-label="Fases do Protocolo Menopausa">
+                <button type="button" role="tab" id="tab-btn-1" aria-selected="true" onclick="selectPhaseTab(1)"
+                        class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between bg-gradient-to-r from-blue-600/30 via-indigo-600/30 to-purple-600/30 border-sky-400/60 text-white shadow-neon-sm">
+                    <div>
+                        <span class="block text-xs uppercase tracking-wider text-sky-300">Fase 1 • Dias 1 a 7</span>
+                        <span class="text-sm sm:text-base font-bold">Semana 1: Apagando o Incêndio</span>
+                    </div>
+                    <i data-lucide="flame" class="w-5 h-5 text-sky-400 shrink-0"></i>
+                </button>
+
+                <button type="button" role="tab" id="tab-btn-2" aria-selected="false" onclick="selectPhaseTab(2)"
+                        class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-indigo-400/40">
+                    <div>
+                        <span class="block text-xs uppercase tracking-wider text-slate-400">Fase 2 • Dias 8 a 14</span>
+                        <span class="text-sm sm:text-base font-bold">Semana 2: Descanso e Metabolismo</span>
+                    </div>
+                    <i data-lucide="moon" class="w-5 h-5 text-indigo-400 shrink-0"></i>
+                </button>
+
+                <button type="button" role="tab" id="tab-btn-3" aria-selected="false" onclick="selectPhaseTab(3)"
+                        class="phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-indigo-400/40">
+                    <div>
+                        <span class="block text-xs uppercase tracking-wider text-slate-400">Fase 3 • Dias 15 a 21</span>
+                        <span class="text-sm sm:text-base font-bold">Semana 3: Força para a Vida Toda</span>
+                    </div>
+                    <i data-lucide="shield" class="w-5 h-5 text-purple-400 shrink-0"></i>
+                </button>
+            </div>
+
+            <!-- Tab Content Panels -->
+            <div class="max-w-5xl mx-auto">
+
+                <!-- FASE 1 PANEL -->
+                <div id="phase-panel-1" role="tabpanel" class="glass-card rounded-3xl p-7 sm:p-10 border border-sky-400/30 shadow-neon-sm transition-all">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-5">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/15 border border-sky-400/30 text-xs font-semibold text-sky-300">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                <span>Fase 1 • Dias 1 a 7</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">
+                                Semana 1 - Apagando o Incêndio (Dias 1 a 7)
+                            </h3>
+                            <p class="text-base sm:text-lg text-slate-200 leading-relaxed">
+                                O nosso primeiro passo é acalmar o seu organismo. Nós vamos focar em desinflamar o seu corpo e diminuir drasticamente as ondas de calor e aquele inchaço que tanto incomodam nos primeiros dias.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-3">
+                                <button type="button" onclick="openModuleModal(1)" class="btn-neon px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white flex items-center gap-2">
+                                    <i data-lucide="compass" class="w-4 h-4"></i>
+                                    <span>Ver Módulo 1: Nova Fase</span>
+                                </button>
+                                <button type="button" onclick="openModuleModal(2)" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs sm:text-sm font-medium text-slate-200 transition-all">
+                                    Ver Cardápio Anti-inflamatório
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-slate-950/60 border border-white/10 rounded-2xl p-6 space-y-4">
+                            <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-sky-400 flex items-center gap-2">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                Metas Práticas da Semana 1
+                            </h4>
+                            <ul class="space-y-3 text-sm text-slate-300">
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                                    <span>Retirada estratégica de gatilhos térmicos (açúcar refinado, ultraprocessados e álcool).</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                                    <span>Protocolo de hidratação (35ml a 40ml/kg) + chás termorreguladores ao entardecer.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                                    <span>Mapeamento diário das ondas de calor e redução da retenção hídrica abdominal.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FASE 2 PANEL -->
+                <div id="phase-panel-2" role="tabpanel" class="hidden glass-card rounded-3xl p-7 sm:p-10 border border-indigo-400/30 shadow-neon-sm transition-all">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-5">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/15 border border-indigo-400/30 text-xs font-semibold text-indigo-300">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                <span>Fase 2 • Dias 8 a 14</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">
+                                Semana 2 - O Descanso e o Metabolismo (Dias 8 a 14)
+                            </h3>
+                            <p class="text-base sm:text-lg text-slate-200 leading-relaxed">
+                                Com o corpo já menos inflamado, a nossa missão passa a ser regular a sua noite de sono e dar aquele empurrão no metabolismo. É aqui que você começa a sentir mais energia para o dia a dia e nota a diferença nas roupas.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-3">
+                                <button type="button" onclick="openModuleModal(3)" class="btn-neon px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white flex items-center gap-2">
+                                    <i data-lucide="moon-star" class="w-4 h-4"></i>
+                                    <span>Ver Módulo 3: Sono & Calor</span>
+                                </button>
+                                <button type="button" onclick="openModuleModal(2)" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs sm:text-sm font-medium text-slate-200 transition-all">
+                                    Abrir Alimentação a seu Favor
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-slate-950/60 border border-white/10 rounded-2xl p-6 space-y-4">
+                            <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-indigo-400 flex items-center gap-2">
+                                <i data-lucide="moon-star" class="w-4 h-4"></i>
+                                Metas Práticas da Semana 2
+                            </h4>
+                            <ul class="space-y-3 text-sm text-slate-300">
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                                    <span>Ritual noturno de desaceleração do cortisol e suporte ao sono reparador.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                                    <span>Janelas estratégicas de proteínas e fibras para estabilizar a curva de insulina.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                                    <span>Ativação metabólica matinal para eliminar a fadiga crônica pós-almoço.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FASE 3 PANEL -->
+                <div id="phase-panel-3" role="tabpanel" class="hidden glass-card rounded-3xl p-7 sm:p-10 border border-purple-400/30 shadow-neon-sm transition-all">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-5">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/15 border border-purple-400/30 text-xs font-semibold text-purple-300">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                <span>Fase 3 • Dias 15 a 21</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">
+                                Semana 3 - Força para a Vida Toda (Dias 15 a 21)
+                            </h3>
+                            <p class="text-base sm:text-lg text-slate-200 leading-relaxed">
+                                A última etapa é sobre blindar o seu corpo contra o envelhecimento. Focamos totalmente na manutenção da sua massa muscular para proteger os ossos, dar firmeza ao corpo e garantir que você mantenha esses resultados para a vida toda.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-3">
+                                <button type="button" onclick="openModuleModal(4)" class="btn-neon px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white flex items-center gap-2">
+                                    <i data-lucide="dumbbell" class="w-4 h-4"></i>
+                                    <span>Ver Módulo 4: Treinos de Força</span>
+                                </button>
+                                <button type="button" onclick="openModuleModal(5)" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs sm:text-sm font-medium text-slate-200 transition-all">
+                                    Ver Suplementos & Hidratação
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-slate-950/60 border border-white/10 rounded-2xl p-6 space-y-4">
+                            <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-purple-400 flex items-center gap-2">
+                                <i data-lucide="dumbbell" class="w-4 h-4"></i>
+                                Metas Práticas da Semana 3
+                            </h4>
+                            <ul class="space-y-3 text-sm text-slate-300">
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                                    <span>Estímulo tensional progressivo para síntese proteica e proteção da densidade óssea.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                                    <span>Suplementação aliada ao colágeno, magnésio e cofatores de longevidade feminina.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                                    <span>Plano de autonomia contínua para manter o metabolismo ativo após os 21 dias.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             5. BANNER DE SUPORTE DIRETO WHATSAPP
+        =========================================== -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 reveal-on-scroll">
+            <div class="glass-card rounded-3xl p-7 sm:p-10 border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <div class="pointer-events-none absolute -left-16 -bottom-16 w-60 h-60 bg-sky-500/15 blur-3xl rounded-full"></div>
+                <div class="flex items-start sm:items-center gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-300 shrink-0 shadow-neon-sm">
+                        <i data-lucide="headset" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-emerald-400">Acompanhamento Clínico Próximo</span>
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-white mt-0.5">
+                            Precisa de orientação personalizada hoje?
+                        </h3>
+                        <p class="text-sm text-slate-300 mt-1 max-w-xl">
+                            Nossa equipe da Clínica Ale Zorzan está pronta para tirar suas dúvidas sobre alimentação, suplementos ou adaptação dos treinos.
+                        </p>
+                    </div>
+                </div>
+                <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Sou%20aluna%20do%20Protocolo%20Menopausa%20da%20Cl%C3%ADnica%20Ale%20Zorzan%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida." 
+                   target="_blank" rel="noopener noreferrer"
+                   class="w-full md:w-auto btn-neon px-7 py-4 rounded-2xl font-display font-semibold text-sm sm:text-base text-white flex items-center justify-center gap-2.5 shrink-0">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span>Falar com a Equipe no WhatsApp</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+    <footer class="border-t border-white/10 bg-black/60 backdrop-blur-md py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <div class="flex items-center gap-2.5">
+                <i data-lucide="sparkles" class="w-4 h-4 text-sky-400"></i>
+                <span class="font-display font-semibold text-slate-200">Protocolo Menopausa | Clínica Ale Zorzan</span>
+            </div>
+            <p class="text-center sm:text-right">
+                © 2026 Clínica Ale Zorzan. Todos os direitos reservados • Saúde Hormonal, Metabolismo e Longevidade.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         MODAL DO VÍDEO DE BOAS-VINDAS
+    =========================================== -->
+    <div id="video-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+        <div class="relative w-full max-w-4xl glass-card rounded-3xl border border-indigo-400/40 shadow-neon-lg overflow-hidden">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-950/80">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
+                    <h3 id="video-modal-title" class="font-display font-bold text-base sm:text-lg text-white">
+                        Aula Inaugural — Protocolo Menopausa (Clínica Ale Zorzan)
+                    </h3>
+                </div>
+                <button type="button" onclick="closeVideoModal()" class="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white transition-colors" aria-label="Fechar vídeo">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Video Player Area -->
+            <div class="aspect-video w-full bg-navy-950 relative flex flex-col items-center justify-center p-6 text-center">
+                <video id="protocol-video" class="w-full h-full object-cover rounded-b-none" controls playsinline poster="">
+                    <!-- Caso exista um arquivo de vídeo local, ele será carregado; também exibimos fallback interativo -->
+                    <source src="../Página DF21/hero_video_hq.mp4" type="video/mp4">
+                </video>
+                <div id="video-fallback-overlay" class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-navy-900/40 via-transparent to-black/70 p-6">
+                    <span class="px-3.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/40 text-xs font-semibold text-sky-300 mb-2">
+                        Bem-vinda ao seu novo ciclo
+                    </span>
+                    <p class="text-xs sm:text-sm text-slate-200 max-w-md">
+                        Use os controles do player para reproduzir, pausar ou ativar o áudio da sua orientação inicial.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL INTERATIVO DOS 6 MÓDULOS
+    =========================================== -->
+    <div id="module-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl" role="dialog" aria-modal="true" aria-labelledby="module-modal-title">
+        <div class="relative w-full max-w-2xl glass-card rounded-3xl border border-purple-400/40 shadow-neon-lg overflow-hidden p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-start justify-between gap-4 mb-5">
+                <div>
+                    <span id="module-modal-badge" class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-1">Módulo 01</span>
+                    <h3 id="module-modal-title" class="font-display font-bold text-2xl text-white">Título do Módulo</h3>
+                </div>
+                <button type="button" onclick="closeModuleModal()" class="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white transition-colors" aria-label="Fechar detalhes do módulo">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <p id="module-modal-desc" class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6"></p>
+
+            <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-5 mb-6">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-300 mb-3 flex items-center gap-2">
+                    <i data-lucide="list-checks" class="w-4 h-4 text-sky-400"></i>
+                    <span>Checklist Prático deste Módulo</span>
+                </h4>
+                <ul id="module-modal-DynamicList" class="space-y-2.5 text-sm text-slate-200"></ul>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-end gap-3">
+                <button type="button" onclick="closeModuleModal()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs sm:text-sm font-medium text-slate-300">
+                    Voltar à Central
+                </button>
+                <a id="module-modal-cta" href="#fases" onclick="closeModuleModal()" class="w-full sm:w-auto btn-neon px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white text-center">
+                    Ver Diretrizes das Fases
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT VANILLA (INTERATIVIDADE COMPLETA)
+    =========================================== -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Detailed Content for the 6 Modules Modal
+        const modulesContent = {
+            1: {
+                badge: "Módulo 01 • Fundamentos Clínicos",
+                title: "O Passo a Passo da Nova Fase",
+                desc: "Entenda exatamente o que está acontecendo com os seus hormônios agora e como nós vamos agir, semana a semana, para silenciar os sintomas do climatério e da menopausa.",
+                items: [
+                    "Por que a queda de estrogênio e progesterona afeta a temperatura corporal e o humor.",
+                    "Como o protocolo age na raiz da inflamação hipotalâmica.",
+                    "Cronograma prático do que priorizar em cada fase do seu tratamento."
+                ]
+            },
+            2: {
+                badge: "Módulo 02 • Nutrição Estratégica",
+                title: "Alimentação a seu Favor",
+                desc: "Esqueça as dietas malucas. Aqui você vai aprender a usar alimentos estratégicos, controlar a insulina e proteger os seus ossos comendo comida de verdade, simples e muito saborosa.",
+                items: [
+                    "Montagem do Prato Hormonalmente Inteligente: proporção ideal de proteínas, fibras e gorduras boas.",
+                    "Alimentos ricos em fitoestrógenos naturais (linhaça dourada, gergelim, brócolis e frutas vermelhas).",
+                    "Estratégia anti-pico de insulina para destravar a perda de gordura localizada no abdômen."
+                ]
+            },
+            3: {
+                badge: "Módulo 03 • Termorregulação & Sono",
+                title: "O Fim da Insônia e do Calor",
+                desc: "Um mapa prático para você acompanhar a diminuição rápida das ondas de calor, a melhora do seu humor e o resgate daquelas noites de sono profundo que você não tem faz tempo.",
+                items: [
+                    "Ritual das 20h: como preparar a temperatura do corpo para induzir o sono REM.",
+                    "Infusões botânicas noturnas que reduzem o suor noturno e a ansiedade.",
+                    "Checklist de gatilhos noturnos a evitar para acordar revigorada."
+                ]
+            },
+            4: {
+                badge: "Módulo 04 • Massa Magra & Longevidade",
+                title: "Força é a sua Nova Proteção",
+                desc: "O segredo real para combater a flacidez e a perda óssea. Você terá acesso a treinos de musculação pensados para o seu momento, que protegem as articulações e aceleram o seu metabolismo.",
+                items: [
+                    "Treinos A, B e C adaptados para casa ou academia com foco em proteção articular.",
+                    "Como a contração muscular libera miocinas anti-inflamatórias e protege contra a osteopenia.",
+                    "Progressão segura de carga para tonificar braços, abdômen, glúteos e pernas."
+                ]
+            },
+            5: {
+                badge: "Módulo 05 • Suplementação & Hidratação",
+                title: "O Suporte que o Corpo Pede",
+                desc: "Descubra quais vitaminas e suplementos realmente importam nessa fase e como a hidratação certa vai eliminar o inchaço e devolver o viço da sua pele.",
+                items: [
+                    "Guia essencial: Magnésio, Ômega-3, Vitamina D3+K2, Creatina e Coenzima Q10 na menopausa.",
+                    "Protocolo de Hidratação Celular: quanto beber e como distribuir ao longo do dia sem interromper o sono.",
+                    "Nutrientes específicos para saúde capilar, unhas e firmeza da pele."
+                ]
+            },
+            6: {
+                badge: "Módulo 06 • Suporte Clínico VIP",
+                title: "Você Nunca Está Sozinha",
+                desc: "Bateu alguma dúvida no meio do processo? A nossa equipe clínica está a um clique de distância no WhatsApp para pegar na sua mão e te ajudar no que for preciso.",
+                items: [
+                    "Atendimento humanizado direto com o time de suporte da Clínica Ale Zorzan.",
+                    "Tire dúvidas sobre substituições alimentares, horários de suplementos e adaptação de exercícios.",
+                    "Acompanhamento próximo para garantir que você tenha resultados consistentes e duradouros."
+                ],
+                isWhatsapp: true
+            }
+        };
+
+        // Phase Tabs Controller (As 3 Fases do Protocolo)
+        function selectPhaseTab(phaseIndex) {
+            for (let i = 1; i <= 3; i++) {
+                const btn = document.getElementById(`tab-btn-${i}`);
+                const panel = document.getElementById(`phase-panel-${i}`);
+
+                if (i === phaseIndex) {
+                    btn.setAttribute('aria-selected', 'true');
+                    btn.className = "phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between bg-gradient-to-r from-blue-600/30 via-indigo-600/30 to-purple-600/30 border-sky-400/60 text-white shadow-neon-sm";
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.setAttribute('aria-selected', 'false');
+                    btn.className = "phase-tab-btn px-5 py-4 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between glass-card border-white/10 text-slate-300 hover:text-white hover:border-indigo-400/40";
+                    panel.classList.add('hidden');
+                }
+            }
+        }
+
+        // Video Modal Controller
+        function openVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const video = document.getElementById('protocol-video');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            if (video) {
+                video.play().catch(() => {
+                    // Autoplay fallback if browser blocks unmuted play
+                });
+            }
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const video = document.getElementById('protocol-video');
+            if (video) {
+                video.pause();
+            }
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Module Detail Modal Controller
+        function openModuleModal(moduleId) {
+            const data = modulesContent[moduleId];
+            if (!data) return;
+
+            document.getElementById('module-modal-badge').textContent = data.badge;
+            document.getElementById('module-modal-title').textContent = data.title;
+            document.getElementById('module-modal-desc').textContent = data.desc;
+
+            const listEl = document.getElementById('module-modal-DynamicList');
+            listEl.innerHTML = data.items.map(item => `
+                <li class="flex items-start gap-2.5">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0 mt-1"></i>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+
+            const ctaEl = document.getElementById('module-modal-cta');
+            if (data.isWhatsapp) {
+                ctaEl.href = "https://wa.me/5500000000000?text=Ol%C3%A1%21%20Sou%20aluna%20do%20Protocolo%20Menopausa%20da%20Cl%C3%ADnica%20Ale%20Zorzan%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida.";
+                ctaEl.target = "_blank";
+                ctaEl.textContent = "Chamar Equipe no WhatsApp";
+            } else {
+                ctaEl.href = "#fases";
+                ctaEl.removeAttribute('target');
+                ctaEl.textContent = "Ver Diretrizes das Fases";
+            }
+
+            lucide.createIcons();
+
+            const modal = document.getElementById('module-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModuleModal() {
+            const modal = document.getElementById('module-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Close Modals on Escape Key or Backdrop Click
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+                closeModuleModal();
+            }
+        });
+
+        document.getElementById('video-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'video-modal') closeVideoModal();
+        });
+
+        document.getElementById('module-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'module-modal') closeModuleModal();
+        });
+
+        // Scroll-Driven Reveal Animations using IntersectionObserver
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.12
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+            revealObserver.observe(section);
+        });
+
+        // Initialize Default State on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            selectPhaseTab(1);
+        });
+    </script>
+</body>
+</html>
+
