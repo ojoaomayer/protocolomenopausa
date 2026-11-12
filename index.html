@@ -71,11 +71,13 @@
         }
         html { -webkit-text-size-adjust: 100%; }
         body {
-            background-color: #FAF6F0;
+            background-color: #F8F1EE;
             background-image: 
-                radial-gradient(circle at 10% 5%, rgba(235, 209, 212, 0.4) 0%, transparent 40%),
-                radial-gradient(circle at 90% 15%, rgba(244, 236, 225, 0.6) 0%, transparent 45%),
-                radial-gradient(circle at 50% 60%, rgba(253, 242, 244, 0.4) 0%, transparent 60%);
+                radial-gradient(circle at 15% 10%, rgba(122, 48, 61, 0.16) 0%, transparent 50%),
+                radial-gradient(circle at 85% 18%, rgba(168, 75, 90, 0.14) 0%, transparent 48%),
+                radial-gradient(circle at 50% 55%, rgba(122, 48, 61, 0.08) 0%, transparent 55%),
+                radial-gradient(circle at 20% 85%, rgba(110, 44, 55, 0.12) 0%, transparent 50%),
+                linear-gradient(180deg, #FBF4F1 0%, #F5ECE8 50%, #EFE4DF 100%);
             background-attachment: fixed;
             color: #2E2A23;
             overflow-x: hidden;
@@ -95,23 +97,23 @@
 
         /* Clean Translucent Header */
         .glass-header {
-            background: rgba(250, 246, 240, 0.88);
+            background: rgba(248, 241, 238, 0.90);
             backdrop-filter: blur(20px) saturate(160%);
             -webkit-backdrop-filter: blur(20px) saturate(160%);
-            border-bottom: 1px solid rgba(225, 215, 205, 0.6);
+            border-bottom: 1px solid rgba(212, 178, 183, 0.4);
         }
 
         /* Clean White & Beige Cards */
         .clean-card {
             background: #FFFFFF;
-            border: 1px solid #EFE8DF;
+            border: 1px solid #EAD8DC;
             border-radius: 1.5rem;
             box-shadow: 0 4px 18px -2px rgba(120, 95, 85, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
             transition: transform 0.35s var(--ease-out-spring), box-shadow 0.35s var(--ease-out-spring), border-color 0.25s ease;
         }
         .clean-card-subtle {
             background: #FDFBF7;
-            border: 1px solid #EFE8DF;
+            border: 1px solid #EAD8DC;
             border-radius: 1.25rem;
         }
 
@@ -246,23 +248,23 @@
             </a>
 
             <!-- Center: Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-1.5 bg-white/70 border border-sand-200/80 rounded-full px-3 py-1.5 shadow-soft-sm backdrop-blur-md" aria-label="Navegação Principal">
+            <nav class="hidden lg:flex items-center gap-1.5 bg-white/70 border border-rose-100/80 rounded-full px-3 py-1.5 shadow-soft-sm backdrop-blur-md" aria-label="Navegação Principal">
                 <button type="button" onclick="navigateTo('home')" data-nav="home" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-rose-800 bg-rose-50 transition-all">
                     Início
                 </button>
-                <button type="button" onclick="navigateTo('protocolo')" data-nav="protocolo" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-cream-100 transition-all">
+                <button type="button" onclick="navigateTo('protocolo')" data-nav="protocolo" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-rose-50/70 transition-all">
                     O Protocolo
                 </button>
-                <button type="button" onclick="navigateTo('cardapio')" data-nav="cardapio" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-cream-100 transition-all">
+                <button type="button" onclick="navigateTo('cardapio')" data-nav="cardapio" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-rose-50/70 transition-all">
                     Cardápio
                 </button>
-                <button type="button" onclick="navigateTo('treinos')" data-nav="treinos" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-cream-100 transition-all">
+                <button type="button" onclick="navigateTo('treinos')" data-nav="treinos" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-rose-50/70 transition-all">
                     Treinos
                 </button>
-                <button type="button" onclick="navigateTo('suplementacao')" data-nav="suplementacao" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-cream-100 transition-all">
+                <button type="button" onclick="navigateTo('suplementacao')" data-nav="suplementacao" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-rose-50/70 transition-all">
                     Suplementação
                 </button>
-                <button type="button" onclick="navigateTo('metricas')" data-nav="metricas" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-cream-100 transition-all">
+                <button type="button" onclick="navigateTo('metricas')" data-nav="metricas" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-rose-50/70 transition-all">
                     Métricas & Água
                 </button>
             </nav>
@@ -270,14 +272,14 @@
             <!-- Right: Mobile Menu Button -->
             <div class="flex items-center gap-3">
                 <!-- Mobile Hamburger Toggle -->
-                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2.5 rounded-xl bg-white border border-sand-200 text-sand-800 hover:text-rose-700 transition-all" aria-label="Abrir menu">
+                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2.5 rounded-xl bg-white border border-rose-100 text-sand-800 hover:text-rose-700 transition-all" aria-label="Abrir menu">
                     <i data-lucide="menu" class="w-5 h-5" id="mobile-menu-icon"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Navigation Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-sand-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5 shadow-soft-md">
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-rose-100 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5 shadow-soft-md">
             <button type="button" onclick="navigateTo('home'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50 hover:text-rose-800 transition-all">
                 Início & Boas-Vindas
             </button>
@@ -309,8 +311,10 @@
         =========================================== -->
         <section id="view-home" class="app-view active-view">
             
-            <!-- Hero Section -->
+            <!-- Hero Section with Ambient Marsala Glow -->
             <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20">
+                <!-- Atmospheric Marsala Background Glows -->
+                <div class="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 w-[380px] sm:w-[680px] h-[340px] bg-gradient-to-tr from-rose-200/50 via-rose-300/30 to-amber-100/30 blur-[100px] rounded-full -z-10"></div>
                 
                 <div class="text-center max-w-4xl mx-auto">
 
@@ -330,10 +334,10 @@
                              tabindex="0"
                              onkeydown="if(event.key==='Enter'||event.key===' ') openVideoModal()"
                              aria-label="Reproduzir aula de boas-vindas do Protocolo Menopausa"
-                             class="clean-card clean-card-interactive relative aspect-video w-full overflow-hidden cursor-pointer flex flex-col justify-between p-6 sm:p-10 text-left border-sand-200">
+                             class="clean-card clean-card-interactive relative aspect-video w-full overflow-hidden cursor-pointer flex flex-col justify-between p-6 sm:p-10 text-left border-rose-100">
                             
                             <!-- Soft Background Poster -->
-                            <div class="absolute inset-0 bg-gradient-to-tr from-cream-200 via-rose-50 to-white z-0"></div>
+                            <div class="absolute inset-0 bg-gradient-to-tr from-rose-100 via-rose-50/80 to-white z-0"></div>
                             
                             <!-- Top Bar inside Video Preview -->
                             <div class="relative z-10 flex items-center justify-between">
@@ -354,7 +358,7 @@
                             </div>
 
                             <!-- Bottom Video Caption -->
-                            <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-4 border-t border-sand-200/80">
+                            <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-4 border-t border-rose-100/80">
                                 <div>
                                     <p class="text-sm sm:text-base font-semibold text-sand-900">Abertura Oficial: O Mapa da Sua Transformação</p>
                                     <p class="text-xs text-sand-600">Com Equipe Médica & Nutricional — Clínica Ale Zorzan</p>
@@ -385,7 +389,7 @@
             </div>
 
             <!-- Central de Acesso (Os 6 Módulos do Grid - Clean & Spaced) -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-sand-200/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-rose-100/60">
                 <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-widest text-rose-700 block mb-2">
@@ -408,7 +412,7 @@
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
                                     <i data-lucide="compass" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-cream-100 text-sand-800 border border-sand-200">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-rose-50/70 text-sand-800 border border-rose-100">
                                     Módulo 01
                                 </span>
                             </div>
@@ -419,7 +423,7 @@
                                 Entenda exatamente o que está acontecendo com os seus hormônios agora e como nós vamos agir, semana a semana, para silenciar os sintomas do climatério e da menopausa.
                             </p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 flex items-center justify-between text-xs font-semibold text-rose-700">
+                        <div class="mt-8 pt-4 border-t border-rose-50 flex items-center justify-between text-xs font-semibold text-rose-700">
                             <span>Mapa Hormonal • Guia Clínico</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -432,7 +436,7 @@
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
                                     <i data-lucide="utensils" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-cream-100 text-sand-800 border border-sand-200">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-rose-50/70 text-sand-800 border border-rose-100">
                                     Módulo 02
                                 </span>
                             </div>
@@ -443,7 +447,7 @@
                                 Esqueça as dietas malucas. Aqui você vai aprender a usar alimentos estratégicos, controlar a insulina e proteger os seus ossos comendo comida de verdade, simples e muito saborosa.
                             </p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 flex items-center justify-between text-xs font-semibold text-rose-700">
+                        <div class="mt-8 pt-4 border-t border-rose-50 flex items-center justify-between text-xs font-semibold text-rose-700">
                             <span>Acessar Página do Cardápio</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -456,7 +460,7 @@
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
                                     <i data-lucide="moon" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-cream-100 text-sand-800 border border-sand-200">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-rose-50/70 text-sand-800 border border-rose-100">
                                     Módulo 03
                                 </span>
                             </div>
@@ -467,7 +471,7 @@
                                 Um mapa diário para você acompanhar a diminuição rápida das ondas de calor, a melhora do seu humor e o resgate daquelas noites de sono profundo que você não tem faz tempo.
                             </p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 flex items-center justify-between text-xs font-semibold text-rose-700">
+                        <div class="mt-8 pt-4 border-t border-rose-50 flex items-center justify-between text-xs font-semibold text-rose-700">
                             <span>Protocolo do Sono & Fogachos</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -480,7 +484,7 @@
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
                                     <i data-lucide="dumbbell" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-cream-100 text-sand-800 border border-sand-200">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-rose-50/70 text-sand-800 border border-rose-100">
                                     Módulo 04
                                 </span>
                             </div>
@@ -491,7 +495,7 @@
                                 O segredo real para combater a flacidez e a perda óssea. Você terá acesso a treinos de musculação pensados para o seu momento, que protegem as articulações e aceleram o seu metabolismo.
                             </p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 flex items-center justify-between text-xs font-semibold text-rose-700">
+                        <div class="mt-8 pt-4 border-t border-rose-50 flex items-center justify-between text-xs font-semibold text-rose-700">
                             <span>Acessar Fichas de Treino</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -504,7 +508,7 @@
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
                                     <i data-lucide="droplets" class="w-6 h-6"></i>
                                 </div>
-                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-cream-100 text-sand-800 border border-sand-200">
+                                <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-rose-50/70 text-sand-800 border border-rose-100">
                                     Módulo 05
                                 </span>
                             </div>
@@ -515,7 +519,7 @@
                                 Descubra quais vitaminas e suplementos realmente importam nessa fase e como a hidratação certa vai eliminar o inchaço e devolver o viço da sua pele.
                             </p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 flex items-center justify-between text-xs font-semibold text-rose-700">
+                        <div class="mt-8 pt-4 border-t border-rose-50 flex items-center justify-between text-xs font-semibold text-rose-700">
                             <span>Acessar Guia de Suplementos</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform"></i>
                         </div>
@@ -539,7 +543,7 @@
                                 Bateu alguma dúvida no meio do processo? A nossa equipe clínica está a um clique de distância no WhatsApp para pegar na sua mão e te ajudar no que for preciso.
                             </p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 flex items-center justify-between text-xs font-semibold text-emerald-700">
+                        <div class="mt-8 pt-4 border-t border-rose-50 flex items-center justify-between text-xs font-semibold text-emerald-700">
                             <span>Canal Direto Clínica Ale Zorzan</span>
                             <i data-lucide="external-link" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -578,7 +582,7 @@
                     </button>
 
                     <button type="button" role="tab" id="tab-btn-2" onclick="selectPhaseTab(2)"
-                            class="phase-tab-btn px-6 py-5 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between clean-card border-sand-200 text-sand-800 hover:border-rose-300">
+                            class="phase-tab-btn px-6 py-5 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between clean-card border-rose-100 text-sand-800 hover:border-rose-300">
                         <div>
                             <span class="block text-xs uppercase tracking-wider text-sand-500 font-bold">Fase 2</span>
                             <span class="text-base font-bold text-sand-900">Semana 2: Descanso e Metabolismo</span>
@@ -587,7 +591,7 @@
                     </button>
 
                     <button type="button" role="tab" id="tab-btn-3" onclick="selectPhaseTab(3)"
-                            class="phase-tab-btn px-6 py-5 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between clean-card border-sand-200 text-sand-800 hover:border-rose-300">
+                            class="phase-tab-btn px-6 py-5 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between clean-card border-rose-100 text-sand-800 hover:border-rose-300">
                         <div>
                             <span class="block text-xs uppercase tracking-wider text-sand-500 font-bold">Fase 3</span>
                             <span class="text-base font-bold text-sand-900">Semana 3: Força para a Vida Toda</span>
@@ -622,7 +626,7 @@
                                 </div>
                             </div>
 
-                            <div class="lg:col-span-5 bg-cream-100/70 border border-sand-200 rounded-2xl p-7 space-y-4">
+                            <div class="lg:col-span-5 bg-rose-50/70/70 border border-rose-100 rounded-2xl p-7 space-y-4">
                                 <h4 class="font-display font-bold text-sm uppercase tracking-wider text-rose-800 flex items-center gap-2">
                                     <i data-lucide="sparkles" class="w-4 h-4 text-rose-600"></i>
                                     Metas Clínicas da Semana 1
@@ -669,7 +673,7 @@
                                 </div>
                             </div>
 
-                            <div class="lg:col-span-5 bg-cream-100/70 border border-sand-200 rounded-2xl p-7 space-y-4">
+                            <div class="lg:col-span-5 bg-rose-50/70/70 border border-rose-100 rounded-2xl p-7 space-y-4">
                                 <h4 class="font-display font-bold text-sm uppercase tracking-wider text-rose-800 flex items-center gap-2">
                                     <i data-lucide="moon" class="w-4 h-4 text-rose-600"></i>
                                     Metas Clínicas da Semana 2
@@ -716,7 +720,7 @@
                                 </div>
                             </div>
 
-                            <div class="lg:col-span-5 bg-cream-100/70 border border-sand-200 rounded-2xl p-7 space-y-4">
+                            <div class="lg:col-span-5 bg-rose-50/70/70 border border-rose-100 rounded-2xl p-7 space-y-4">
                                 <h4 class="font-display font-bold text-sm uppercase tracking-wider text-rose-800 flex items-center gap-2">
                                     <i data-lucide="dumbbell" class="w-4 h-4 text-rose-600"></i>
                                     Metas Clínicas da Semana 3
@@ -766,7 +770,7 @@
                     
                     <!-- Permitidos -->
                     <div class="clean-card p-8 sm:p-10 border-emerald-200/80 shadow-soft-sm">
-                        <div class="flex items-center gap-4 mb-8 pb-5 border-b border-sand-100">
+                        <div class="flex items-center gap-4 mb-8 pb-5 border-b border-rose-50">
                             <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-200">
                                 <i data-lucide="check-circle-2" class="w-6 h-6"></i>
                             </div>
@@ -811,7 +815,7 @@
 
                     <!-- A Evitar -->
                     <div class="clean-card p-8 sm:p-10 border-rose-200/80 shadow-soft-sm">
-                        <div class="flex items-center gap-4 mb-8 pb-5 border-b border-sand-100">
+                        <div class="flex items-center gap-4 mb-8 pb-5 border-b border-rose-50">
                             <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center border border-rose-200">
                                 <i data-lucide="x-circle" class="w-6 h-6"></i>
                             </div>
@@ -857,23 +861,23 @@
                 </div>
 
                 <!-- Dica Prática de Montagem do Prato -->
-                <div class="clean-card p-8 sm:p-10 border-sand-200">
+                <div class="clean-card p-8 sm:p-10 border-rose-100">
                     <h3 class="font-display font-bold text-xl text-sand-900 mb-6 flex items-center gap-2.5">
                         <i data-lucide="sparkles" class="w-5 h-5 text-rose-600"></i>
                         A Regra do Prato Hormonalmente Inteligente
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-sand-700">
-                        <div class="bg-cream-50 p-6 rounded-2xl border border-sand-200">
+                        <div class="bg-[#FAF1F2] p-6 rounded-2xl border border-rose-100">
                             <span class="text-2xl font-bold text-rose-700 block mb-1">50% do Prato</span>
                             <strong class="text-sand-900 block mb-1">Vegetais Variados</strong>
                             <p class="text-xs text-sand-600">Folhas verde-escuras, legumes coloridos e fontes abundantes de fibras prebióticas.</p>
                         </div>
-                        <div class="bg-cream-50 p-6 rounded-2xl border border-sand-200">
+                        <div class="bg-[#FAF1F2] p-6 rounded-2xl border border-rose-100">
                             <span class="text-2xl font-bold text-rose-700 block mb-1">25% do Prato</span>
                             <strong class="text-sand-900 block mb-1">Proteína de Alto Valor</strong>
                             <p class="text-xs text-sand-600">Palma da mão de frango, peixe ou ovos para sustentar a regeneração muscular.</p>
                         </div>
-                        <div class="bg-cream-50 p-6 rounded-2xl border border-sand-200">
+                        <div class="bg-[#FAF1F2] p-6 rounded-2xl border border-rose-100">
                             <span class="text-2xl font-bold text-rose-700 block mb-1">25% do Prato</span>
                             <strong class="text-sand-900 block mb-1">Carboidratos Complexos & Gorduras</strong>
                             <p class="text-xs text-sand-600">Tubérculos (batata-doce, abóbora), azeite extravirgem ou sementes benéficas.</p>
@@ -905,7 +909,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     
                     <!-- Ficha A -->
-                    <div class="clean-card p-8 flex flex-col justify-between border-sand-200 shadow-soft-sm">
+                    <div class="clean-card p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
                         <div>
                             <div class="flex items-center justify-between mb-5">
                                 <span class="px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-800">Treino A</span>
@@ -920,13 +924,13 @@
                                 <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-rose-600"></i> Panturrilha em pé: 3x 20 rep</li>
                             </ul>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 text-xs text-sand-500 font-medium">
+                        <div class="mt-8 pt-4 border-t border-rose-50 text-xs text-sand-500 font-medium">
                             Descanso: 60s entre as séries • Foco na postura
                         </div>
                     </div>
 
                     <!-- Ficha B -->
-                    <div class="clean-card p-8 flex flex-col justify-between border-sand-200 shadow-soft-sm">
+                    <div class="clean-card p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
                         <div>
                             <div class="flex items-center justify-between mb-5">
                                 <span class="px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-800">Treino B</span>
@@ -941,13 +945,13 @@
                                 <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-rose-600"></i> Rosca bíceps com cadência controlada: 3x 12 rep</li>
                             </ul>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 text-xs text-sand-500 font-medium">
+                        <div class="mt-8 pt-4 border-t border-rose-50 text-xs text-sand-500 font-medium">
                             Descanso: 60s entre as séries • Carga moderada
                         </div>
                     </div>
 
                     <!-- Alongamento -->
-                    <div class="clean-card p-8 flex flex-col justify-between border-sand-200 shadow-soft-sm">
+                    <div class="clean-card p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
                         <div>
                             <div class="flex items-center justify-between mb-5">
                                 <span class="px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-800">Mobilidade</span>
@@ -962,7 +966,7 @@
                                 <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-rose-600"></i> Respiração diafragmática profunda: 3 minutos</li>
                             </ul>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-sand-100 text-xs text-sand-500 font-medium">
+                        <div class="mt-8 pt-4 border-t border-rose-50 text-xs text-sand-500 font-medium">
                             Recomendado ao acordar ou antes de dormir
                         </div>
                     </div>
@@ -991,7 +995,7 @@
                 </div>
 
                 <!-- Disclaimer Clínico -->
-                <div class="clean-card p-6 border-sand-300/80 bg-cream-50 flex items-start gap-4 mb-12 max-w-4xl mx-auto">
+                <div class="clean-card p-6 border-sand-300/80 bg-[#FAF1F2] flex items-start gap-4 mb-12 max-w-4xl mx-auto">
                     <i data-lucide="alert-circle" class="w-5 h-5 text-rose-600 shrink-0 mt-0.5"></i>
                     <p class="text-xs sm:text-sm text-sand-700 leading-relaxed">
                         <strong class="text-sand-900">Aviso de Responsabilidade Médica:</strong> O conteúdo abaixo possui caráter informativo e educacional. Em caso de patologias prévias ou uso de medicações contínuas, consulte nossa equipe clínica no canal de suporte.
@@ -1002,7 +1006,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     
                     <!-- Suplemento 1 -->
-                    <div class="clean-card p-8 border-sand-200">
+                    <div class="clean-card p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Noite & Sono</span>
                             <i data-lucide="moon" class="w-5 h-5 text-rose-600"></i>
@@ -1011,13 +1015,13 @@
                         <p class="text-xs text-sand-600 mb-5 leading-relaxed">
                             Relaxamento do sistema nervoso central, redução da irritabilidade e indução do sono restaurador profundo.
                         </p>
-                        <div class="text-xs bg-cream-100 p-3.5 rounded-xl border border-sand-200 text-sand-800">
+                        <div class="text-xs bg-rose-50/70 p-3.5 rounded-xl border border-rose-100 text-sand-800">
                             <strong>Horário sugerido:</strong> 30 a 60 minutos antes de se deitar.
                         </div>
                     </div>
 
                     <!-- Suplemento 2 -->
-                    <div class="clean-card p-8 border-sand-200">
+                    <div class="clean-card p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Fogachos & Calor</span>
                             <i data-lucide="sparkles" class="w-5 h-5 text-rose-600"></i>
@@ -1026,13 +1030,13 @@
                         <p class="text-xs text-sand-600 mb-5 leading-relaxed">
                             Ação fitoterápica direta nos receptores de temperatura, atenuando a intensidade e a frequência das ondas de calor.
                         </p>
-                        <div class="text-xs bg-cream-100 p-3.5 rounded-xl border border-sand-200 text-sand-800">
+                        <div class="text-xs bg-rose-50/70 p-3.5 rounded-xl border border-rose-100 text-sand-800">
                             <strong>Horário sugerido:</strong> Ao final da tarde ou início da noite (morno/frio).
                         </div>
                     </div>
 
                     <!-- Suplemento 3 -->
-                    <div class="clean-card p-8 border-sand-200">
+                    <div class="clean-card p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Ossos & Imunidade</span>
                             <i data-lucide="shield-check" class="w-5 h-5 text-rose-600"></i>
@@ -1041,13 +1045,13 @@
                         <p class="text-xs text-sand-600 mb-5 leading-relaxed">
                             Fixação do cálcio nos ossos em vez das artérias e controle sistêmico das vias pró-inflamatórias.
                         </p>
-                        <div class="text-xs bg-cream-100 p-3.5 rounded-xl border border-sand-200 text-sand-800">
+                        <div class="text-xs bg-rose-50/70 p-3.5 rounded-xl border border-rose-100 text-sand-800">
                             <strong>Horário sugerido:</strong> Junto a uma refeição principal com gordura boa.
                         </div>
                     </div>
 
                     <!-- Suplemento 4 -->
-                    <div class="clean-card p-8 border-sand-200">
+                    <div class="clean-card p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Pele & Articulações</span>
                             <i data-lucide="droplet" class="w-5 h-5 text-rose-600"></i>
@@ -1056,13 +1060,13 @@
                         <p class="text-xs text-sand-600 mb-5 leading-relaxed">
                             Devolve o viço e firmeza da pele, reduzindo o ressecamento característico da redução estrogênica.
                         </p>
-                        <div class="text-xs bg-cream-100 p-3.5 rounded-xl border border-sand-200 text-sand-800">
+                        <div class="text-xs bg-rose-50/70 p-3.5 rounded-xl border border-rose-100 text-sand-800">
                             <strong>Horário sugerido:</strong> Pela manhã ou em jejum intercalado.
                         </div>
                     </div>
 
                     <!-- Suplemento 5 -->
-                    <div class="clean-card p-8 border-sand-200">
+                    <div class="clean-card p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Força & Cérebro</span>
                             <i data-lucide="zap" class="w-5 h-5 text-rose-600"></i>
@@ -1071,13 +1075,13 @@
                         <p class="text-xs text-sand-600 mb-5 leading-relaxed">
                             Previne a sarcopenia (perda de massa magra) e melhora a clareza mental e concentração na menopausa.
                         </p>
-                        <div class="text-xs bg-cream-100 p-3.5 rounded-xl border border-sand-200 text-sand-800">
+                        <div class="text-xs bg-rose-50/70 p-3.5 rounded-xl border border-rose-100 text-sand-800">
                             <strong>Horário sugerido:</strong> Uso diário e contínuo, a qualquer hora do dia.
                         </div>
                     </div>
 
                     <!-- Suplemento 6 -->
-                    <div class="clean-card p-8 border-sand-200">
+                    <div class="clean-card p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Anti-inflamação</span>
                             <i data-lucide="sun" class="w-5 h-5 text-rose-600"></i>
@@ -1086,7 +1090,7 @@
                         <p class="text-xs text-sand-600 mb-5 leading-relaxed">
                             Inibição da via NF-kB com alívio notável de dores articulares matinais e inchaço corporal.
                         </p>
-                        <div class="text-xs bg-cream-100 p-3.5 rounded-xl border border-sand-200 text-sand-800">
+                        <div class="text-xs bg-rose-50/70 p-3.5 rounded-xl border border-rose-100 text-sand-800">
                             <strong>Horário sugerido:</strong> Shot matinal ou junto ao almoço.
                         </div>
                     </div>
@@ -1117,7 +1121,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-5xl mx-auto">
                     
                     <!-- Form -->
-                    <div class="lg:col-span-6 clean-card p-8 sm:p-10 border-sand-200 shadow-soft-sm">
+                    <div class="lg:col-span-6 clean-card p-8 sm:p-10 border-rose-100 shadow-soft-sm">
                         <h3 class="font-display font-bold text-xl text-sand-900 mb-6 flex items-center gap-2.5">
                             <i data-lucide="sliders" class="w-5 h-5 text-rose-600"></i>
                             Insira Seus Dados
@@ -1127,28 +1131,28 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-weight">Seu Peso (kg)</label>
-                                    <input type="number" id="input-weight" value="68" step="0.1" class="w-full bg-cream-50 border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                    <input type="number" id="input-weight" value="68" step="0.1" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-height">Sua Altura (cm)</label>
-                                    <input type="number" id="input-height" value="165" step="1" class="w-full bg-cream-50 border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                    <input type="number" id="input-height" value="165" step="1" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-waist">Cintura (cm)</label>
-                                    <input type="number" id="input-waist" value="78" step="0.5" class="w-full bg-cream-50 border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                    <input type="number" id="input-waist" value="78" step="0.5" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-hip">Quadril (cm)</label>
-                                    <input type="number" id="input-hip" value="98" step="0.5" class="w-full bg-cream-50 border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                    <input type="number" id="input-hip" value="98" step="0.5" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-activity">Nível de Atividade & Clima</label>
-                                <select id="input-activity" class="w-full bg-cream-50 border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                <select id="input-activity" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                     <option value="35">Padrão Terapêutico (35ml por kg)</option>
                                     <option value="40" selected>Dias Quentes ou Treino Moderado (40ml por kg)</option>
                                     <option value="45">Atividade Intensa / Muita Transpiração (45ml por kg)</option>
@@ -1164,7 +1168,7 @@
                     <!-- Resultados -->
                     <div class="lg:col-span-6 space-y-6">
                         <!-- Card Meta de Água -->
-                        <div class="clean-card p-8 border-rose-200 bg-cream-50/70 shadow-soft-sm">
+                        <div class="clean-card p-8 border-rose-200 bg-[#FAF1F2]/70 shadow-soft-sm">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700 block mb-1">Hidratação Celular</span>
                             <h4 class="font-display font-bold text-2xl text-sand-900 mb-2">
                                 <span id="res-water-ml" class="text-3xl sm:text-4xl text-rose-700 font-extrabold">2.720</span> ml de água por dia
@@ -1172,13 +1176,13 @@
                             <p class="text-xs sm:text-sm text-sand-600 mb-5">
                                 Equivalente a aproximadamente <strong id="res-water-glasses" class="text-sand-900">11 copos de 250ml</strong> distribuídos ao longo do dia.
                             </p>
-                            <div class="bg-white p-4 rounded-xl border border-sand-200 text-xs text-sand-700">
+                            <div class="bg-white p-4 rounded-xl border border-rose-100 text-xs text-sand-700">
                                 💡 <strong>Dica Clínica:</strong> Beba o maior volume até as 18h para não interromper a fase de sono profundo com idas ao banheiro durante a noite.
                             </div>
                         </div>
 
                         <!-- Card IMC & RCQ -->
-                        <div class="clean-card p-8 border-sand-200 shadow-soft-sm">
+                        <div class="clean-card p-8 border-rose-100 shadow-soft-sm">
                             <div class="grid grid-cols-2 gap-6">
                                 <div>
                                     <span class="text-xs font-bold uppercase tracking-wider text-sand-500 block mb-1">Seu IMC</span>
@@ -1191,7 +1195,7 @@
                                     <span id="res-rcq-class" class="text-xs block text-emerald-700 font-semibold mt-1">Baixo Risco Metabólico</span>
                                 </div>
                             </div>
-                            <div class="mt-6 pt-4 border-t border-sand-100 text-xs text-sand-500">
+                            <div class="mt-6 pt-4 border-t border-rose-50 text-xs text-sand-500">
                                 Na menopausa, a circunferência abdominal é um dos melhores marcadores de sensibilidade à insulina.
                             </div>
                         </div>
@@ -1206,7 +1210,7 @@
              BANNER SUPORTE WHATSAPP (ACOLHEDOR & CLEAN)
         =========================================== -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-            <div class="clean-card p-8 sm:p-10 border-sand-200 bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft-sm">
+            <div class="clean-card p-8 sm:p-10 border-rose-100 bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft-sm">
                 <div class="flex items-start sm:items-center gap-5">
                     <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
                         <i data-lucide="headset" class="w-7 h-7"></i>
@@ -1234,7 +1238,7 @@
     <!-- ==========================================
          FOOTER
     =========================================== -->
-    <footer class="border-t border-sand-200/80 bg-white py-12 mt-auto">
+    <footer class="border-t border-rose-100/80 bg-white py-12 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-sand-600">
             <div class="flex items-center gap-2.5">
                 <span class="font-display font-semibold text-sand-800">Protocolo Menopausa | Clínica Ale Zorzan</span>
@@ -1249,15 +1253,15 @@
          MODAL DO VÍDEO DE BOAS-VINDAS
     =========================================== -->
     <div id="video-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
-        <div class="relative w-full max-w-4xl bg-white rounded-3xl border border-sand-200 shadow-soft-lg overflow-hidden">
-            <div class="flex items-center justify-between px-6 py-4 border-b border-sand-200 bg-cream-50">
+        <div class="relative w-full max-w-4xl bg-white rounded-3xl border border-rose-100 shadow-soft-lg overflow-hidden">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-rose-100 bg-[#FAF1F2]">
                 <div class="flex items-center gap-2.5">
                     <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
                     <h3 class="font-display font-bold text-base sm:text-lg text-sand-900">
                         Aula Inaugural — Protocolo Menopausa (Clínica Ale Zorzan)
                     </h3>
                 </div>
-                <button type="button" onclick="closeVideoModal()" class="p-2 rounded-xl bg-white hover:bg-sand-100 text-sand-600 hover:text-sand-900 border border-sand-200 transition-colors" aria-label="Fechar vídeo">
+                <button type="button" onclick="closeVideoModal()" class="p-2 rounded-xl bg-white hover:bg-sand-100 text-sand-600 hover:text-sand-900 border border-rose-100 transition-colors" aria-label="Fechar vídeo">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -1274,7 +1278,7 @@
          MODAL INTERATIVO DOS MÓDULOS
     =========================================== -->
     <div id="module-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
-        <div class="relative w-full max-w-2xl bg-white rounded-3xl border border-sand-200 shadow-soft-lg overflow-hidden p-8 sm:p-10 max-h-[90vh] overflow-y-auto">
+        <div class="relative w-full max-w-2xl bg-white rounded-3xl border border-rose-100 shadow-soft-lg overflow-hidden p-8 sm:p-10 max-h-[90vh] overflow-y-auto">
             <div class="flex items-start justify-between gap-4 mb-6">
                 <div>
                     <span id="module-modal-badge" class="text-xs font-bold uppercase tracking-widest text-rose-700 block mb-1">Módulo 01</span>
@@ -1287,7 +1291,7 @@
 
             <p id="module-modal-desc" class="text-sm sm:text-base text-sand-700 leading-relaxed mb-6"></p>
 
-            <div class="bg-cream-50 border border-sand-200 rounded-2xl p-6 mb-8">
+            <div class="bg-[#FAF1F2] border border-rose-100 rounded-2xl p-6 mb-8">
                 <h4 class="text-xs font-bold uppercase tracking-wider text-rose-800 mb-3.5 flex items-center gap-2">
                     <i data-lucide="list-checks" class="w-4 h-4 text-rose-600"></i>
                     <span>Checklist Prático deste Módulo</span>
@@ -1296,7 +1300,7 @@
             </div>
 
             <div class="flex flex-col sm:flex-row items-center justify-end gap-3">
-                <button type="button" onclick="closeModuleModal()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-sand-100 border border-sand-200 text-xs sm:text-sm font-semibold text-sand-700">
+                <button type="button" onclick="closeModuleModal()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-sand-100 border border-rose-100 text-xs sm:text-sm font-semibold text-sand-700">
                     Fechar
                 </button>
                 <a id="module-modal-cta" href="javascript:void(0)" onclick="closeModuleModal()" class="w-full sm:w-auto btn-clean-primary px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-center">
@@ -1329,7 +1333,7 @@
                 if (btn.getAttribute('data-nav') === viewId) {
                     btn.className = "nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-rose-800 bg-rose-50 transition-all";
                 } else {
-                    btn.className = "nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-cream-100 transition-all";
+                    btn.className = "nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-rose-50/70 transition-all";
                 }
             });
 
@@ -1348,7 +1352,7 @@
                     btn.className = "phase-tab-btn px-6 py-5 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between bg-rose-50 border-rose-300 text-rose-900 shadow-soft-sm";
                     panel.classList.remove('hidden');
                 } else {
-                    btn.className = "phase-tab-btn px-6 py-5 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between clean-card border-sand-200 text-sand-800 hover:border-rose-300";
+                    btn.className = "phase-tab-btn px-6 py-5 rounded-2xl font-display font-semibold text-left transition-all border flex items-center justify-between clean-card border-rose-100 text-sand-800 hover:border-rose-300";
                     panel.classList.add('hidden');
                 }
             }
@@ -1545,7 +1549,7 @@
            target="_blank" 
            rel="noopener noreferrer" 
            aria-label="Abrir suporte pelo WhatsApp com a equipe da Clínica Ale Zorzan"
-           class="group flex items-center gap-3 bg-white text-sand-900 pl-4 pr-5 py-3 rounded-full border border-sand-200/90 shadow-soft-lg hover:shadow-soft-hover hover:border-emerald-300 transition-all duration-300 transform hover:-translate-y-1">
+           class="group flex items-center gap-3 bg-white text-sand-900 pl-4 pr-5 py-3 rounded-full border border-rose-100/90 shadow-soft-lg hover:shadow-soft-hover hover:border-emerald-300 transition-all duration-300 transform hover:-translate-y-1">
             <span class="relative flex h-3.5 w-3.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
