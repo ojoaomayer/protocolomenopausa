@@ -2,9 +2,12 @@
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
     <title>Protocolo Menopausa | Ale Zorzan — Área de Membros</title>
     <meta name="description" content="Área de membros oficial do Protocolo Menopausa da Clínica Ale Zorzan. Um passo a passo prático para você recuperar o controle do seu corpo, saúde hormonal e longevidade.">
+    <meta name="theme-color" content="#F8F1EE">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,6 +34,7 @@
                         sand: {
                             100: '#F5F2EB',
                             200: '#EAE5D9',
+                            300: '#D9D0C3',
                             600: '#8C8270',
                             800: '#4A4438',
                             900: '#2E2A23',
@@ -69,7 +73,13 @@
         :root {
             --ease-out-spring: cubic-bezier(0.32, 0.72, 0, 1);
         }
-        html { -webkit-text-size-adjust: 100%; }
+        
+        /* Mobile-Native Global Baseline */
+        html { 
+            -webkit-text-size-adjust: 100%; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        
         body {
             background-color: #F8F1EE;
             background-image: 
@@ -87,6 +97,42 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Eliminate 300ms mobile tap delay */
+        button, a, select, input, [role="button"], .clean-card-interactive, .phase-tab-btn {
+            touch-action: manipulation;
+        }
+
+        /* Prevent text selection callout on UI controls when tapped or long-pressed */
+        button, [role="button"], .nav-item, .phase-tab-btn, a {
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        /* Prevent iOS Safari auto-zoom on input focus (minimum 16px font-size) */
+        input, textarea, select {
+            font-size: 16px !important;
+        }
+
+        /* Safe Area Padding for Modern Mobile Devices (iPhone Notch / Dynamic Island / Navigation Bars) */
+        header#main-header {
+            padding-top: env(safe-area-inset-top, 0px);
+        }
+        main {
+            padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+            padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+        }
+        .floating-whatsapp {
+            bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+            right: calc(1rem + env(safe-area-inset-right, 0px));
+        }
+        @media (min-width: 640px) {
+            .floating-whatsapp {
+                bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+                right: calc(1.5rem + env(safe-area-inset-right, 0px));
+            }
+        }
+
         /* Typography */
         h1 { letter-spacing: -0.03em; line-height: 1.15; text-wrap: balance; font-weight: 700; color: #1E1B18; }
         h2 { letter-spacing: -0.025em; line-height: 1.2; text-wrap: balance; font-weight: 700; color: #1E1B18; }
@@ -97,7 +143,7 @@
 
         /* Clean Translucent Header */
         .glass-header {
-            background: rgba(248, 241, 238, 0.90);
+            background: rgba(248, 241, 238, 0.92);
             backdrop-filter: blur(20px) saturate(160%);
             -webkit-backdrop-filter: blur(20px) saturate(160%);
             border-bottom: 1px solid rgba(212, 178, 183, 0.4);
@@ -109,7 +155,7 @@
             border: 1px solid #EAD8DC;
             border-radius: 1.5rem;
             box-shadow: 0 4px 18px -2px rgba(120, 95, 85, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
-            transition: transform 0.35s var(--ease-out-spring), box-shadow 0.35s var(--ease-out-spring), border-color 0.25s ease;
+            transition: transform 0.25s var(--ease-out-spring), box-shadow 0.25s var(--ease-out-spring), border-color 0.2s ease;
         }
         .clean-card-subtle {
             background: #FDFBF7;
@@ -120,15 +166,29 @@
         .clean-card-interactive {
             cursor: pointer;
         }
-        .clean-card-interactive:hover {
-            transform: translateY(-4px);
-            border-color: #D4B2B7;
-            box-shadow: 0 14px 30px -4px rgba(110, 44, 55, 0.11), 0 2px 6px rgba(0, 0, 0, 0.02);
-        }
 
-        @media (hover: none) {
-            .clean-card-interactive:hover { transform: none; box-shadow: 0 4px 18px -2px rgba(120, 95, 85, 0.04); border-color: #EFE8DF; }
-            .btn-clean-primary:hover { transform: none; }
+        /* Sticky Hover Protection: Only apply :hover on devices that support real hover (mice) */
+        @media (hover: hover) and (pointer: fine) {
+            .clean-card-interactive:hover {
+                transform: translateY(-4px);
+                border-color: #D4B2B7;
+                box-shadow: 0 14px 30px -4px rgba(110, 44, 55, 0.11), 0 2px 6px rgba(0, 0, 0, 0.02);
+            }
+            .btn-clean-primary:hover {
+                background-color: #63242F;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px -3px rgba(110, 44, 55, 0.45);
+            }
+            .btn-clean-secondary:hover {
+                background-color: #FDFBF7;
+                border-color: #CDBFB0;
+                color: #1E1B18;
+                transform: translateY(-1px);
+            }
+            .play-button-clean:hover {
+                transform: scale(1.06);
+                box-shadow: 0 14px 32px -4px rgba(110, 44, 55, 0.30);
+            }
         }
 
         /* Clean Aesthetic Primary Button */
@@ -137,18 +197,9 @@
             color: #FFFFFF;
             border-radius: 1rem;
             font-weight: 600;
-            transition: all 0.25s var(--ease-out-spring);
+            transition: all 0.2s var(--ease-out-spring);
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 4px 14px -2px rgba(110, 44, 55, 0.35);
-        }
-        .btn-clean-primary:hover {
-            background-color: #63242F;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px -3px rgba(110, 44, 55, 0.45);
-        }
-        .btn-clean-primary:active, button:active {
-            transform: scale(0.98);
-            transition-duration: 0.1s;
         }
 
         .btn-clean-secondary {
@@ -159,11 +210,16 @@
             font-weight: 500;
             transition: all 0.2s var(--ease-out-spring);
         }
-        .btn-clean-secondary:hover {
-            background-color: #FDFBF7;
-            border-color: #CDBFB0;
-            color: #1E1B18;
-            transform: translateY(-1px);
+
+        /* Instant Native Press Feedback on Mobile & Desktop */
+        .btn-clean-primary:active, 
+        .btn-clean-secondary:active, 
+        button:active, 
+        .clean-card-interactive:active,
+        .phase-tab-btn:active,
+        [role="button"]:active {
+            transform: scale(0.97) !important;
+            transition-duration: 80ms !important;
         }
 
         :focus-visible {
@@ -279,7 +335,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
             
             <!-- Left: Brand Logo (Minimalist & Clean) -->
-            <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center group focus:outline-none">
+            <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center group focus:outline-none min-h-[44px] py-1">
                 <div class="flex flex-col">
                     <div class="flex items-center gap-2">
                         <span class="font-display font-bold text-base sm:text-lg tracking-tight text-sand-900 group-hover:text-rose-700 transition-colors">
@@ -296,7 +352,7 @@
                 </div>
             </a>
 
-            <!-- Center: Navigation Links -->
+            <!-- Center: Navigation Links (Desktop) -->
             <nav class="hidden lg:flex items-center gap-1.5 bg-white/70 border border-rose-100/80 rounded-full px-3 py-1.5 shadow-soft-sm backdrop-blur-md" aria-label="Navegação Principal">
                 <button type="button" onclick="navigateTo('home')" data-nav="home" class="nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-rose-800 bg-rose-50 transition-all">
                     Início
@@ -318,34 +374,39 @@
                 </button>
             </nav>
 
-            <!-- Right: Mobile Menu Button -->
+            <!-- Right: Mobile Menu Button (Comfortable 44px Touch Target) -->
             <div class="flex items-center gap-3">
-                <!-- Mobile Hamburger Toggle -->
-                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2.5 rounded-xl bg-white border border-rose-100 text-sand-800 hover:text-rose-700 transition-all" aria-label="Abrir menu">
+                <button id="mobile-menu-btn" type="button" class="lg:hidden min-w-[44px] min-h-[44px] p-2.5 rounded-xl bg-white border border-rose-200 text-sand-800 hover:text-rose-700 active:scale-95 transition-all flex items-center justify-center shadow-soft-sm" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <i data-lucide="menu" class="w-5 h-5" id="mobile-menu-icon"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Navigation Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-rose-100 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5 shadow-soft-md">
-            <button type="button" onclick="navigateTo('home'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50 hover:text-rose-800 transition-all">
-                Início & Boas-Vindas
+        <!-- Mobile Navigation Drawer with Touch-Optimized Hit Areas -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-rose-100 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2 shadow-soft-md max-h-[calc(100dvh-5rem)] overflow-y-auto">
+            <button type="button" onclick="navigateTo('home'); toggleMobileMenu(false);" data-mobile-nav="home" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-rose-800 bg-rose-50/90 border border-rose-200/60 flex items-center justify-between min-h-[48px]">
+                <span>Início & Boas-Vindas</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
             </button>
-            <button type="button" onclick="navigateTo('protocolo'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50 hover:text-rose-800 transition-all">
-                O Protocolo (3 Fases)
+            <button type="button" onclick="navigateTo('protocolo'); toggleMobileMenu(false);" data-mobile-nav="protocolo" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50/50 hover:text-rose-800 transition-all flex items-center justify-between min-h-[48px]">
+                <span>O Protocolo (3 Fases)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
             </button>
-            <button type="button" onclick="navigateTo('cardapio'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50 hover:text-rose-800 transition-all">
-                Guia Alimentar & Cardápio
+            <button type="button" onclick="navigateTo('cardapio'); toggleMobileMenu(false);" data-mobile-nav="cardapio" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50/50 hover:text-rose-800 transition-all flex items-center justify-between min-h-[48px]">
+                <span>Guia Alimentar & Cardápio</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
             </button>
-            <button type="button" onclick="navigateTo('treinos'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50 hover:text-rose-800 transition-all">
-                Treinos de Força & Alongamento
+            <button type="button" onclick="navigateTo('treinos'); toggleMobileMenu(false);" data-mobile-nav="treinos" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50/50 hover:text-rose-800 transition-all flex items-center justify-between min-h-[48px]">
+                <span>Treinos de Força & Alongamento</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
             </button>
-            <button type="button" onclick="navigateTo('suplementacao'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50 hover:text-rose-800 transition-all">
-                Suplementação & Chás
+            <button type="button" onclick="navigateTo('suplementacao'); toggleMobileMenu(false);" data-mobile-nav="suplementacao" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50/50 hover:text-rose-800 transition-all flex items-center justify-between min-h-[48px]">
+                <span>Suplementação & Chás</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
             </button>
-            <button type="button" onclick="navigateTo('metricas'); toggleMobileMenu(false);" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50 hover:text-rose-800 transition-all">
-                Calculadora de Métricas & Hidratação
+            <button type="button" onclick="navigateTo('metricas'); toggleMobileMenu(false);" data-mobile-nav="metricas" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50/50 hover:text-rose-800 transition-all flex items-center justify-between min-h-[48px]">
+                <span>Calculadora de Métricas & Hidratação</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
             </button>
         </div>
     </header>
@@ -353,7 +414,7 @@
     <!-- ==========================================
          MAIN CONTENT (SPA CONTAINER)
     =========================================== -->
-    <main class="flex-grow pt-28 pb-24 relative z-10">
+    <main class="flex-grow relative z-10">
 
         <!-- ==========================================
              PÁGINA 1: HOME (DASHBOARD & BOAS-VINDAS)
@@ -455,7 +516,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Módulo 1 -->
-                    <article onclick="openModuleModal(1)" tabindex="0" role="button" class="clean-card clean-card-interactive p-8 flex flex-col justify-between group">
+                    <article onclick="openModuleModal(1)" tabindex="0" role="button" class="clean-card clean-card-interactive p-6 sm:p-8 flex flex-col justify-between group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
@@ -479,7 +540,7 @@
                     </article>
 
                     <!-- Módulo 2 -->
-                    <article onclick="navigateTo('cardapio')" tabindex="0" role="button" class="clean-card clean-card-interactive p-8 flex flex-col justify-between group">
+                    <article onclick="navigateTo('cardapio')" tabindex="0" role="button" class="clean-card clean-card-interactive p-6 sm:p-8 flex flex-col justify-between group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
@@ -503,7 +564,7 @@
                     </article>
 
                     <!-- Módulo 3 -->
-                    <article onclick="openModuleModal(3)" tabindex="0" role="button" class="clean-card clean-card-interactive p-8 flex flex-col justify-between group">
+                    <article onclick="openModuleModal(3)" tabindex="0" role="button" class="clean-card clean-card-interactive p-6 sm:p-8 flex flex-col justify-between group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
@@ -527,7 +588,7 @@
                     </article>
 
                     <!-- Módulo 4 -->
-                    <article onclick="navigateTo('treinos')" tabindex="0" role="button" class="clean-card clean-card-interactive p-8 flex flex-col justify-between group">
+                    <article onclick="navigateTo('treinos')" tabindex="0" role="button" class="clean-card clean-card-interactive p-6 sm:p-8 flex flex-col justify-between group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
@@ -551,7 +612,7 @@
                     </article>
 
                     <!-- Módulo 5 -->
-                    <article onclick="navigateTo('suplementacao')" tabindex="0" role="button" class="clean-card clean-card-interactive p-8 flex flex-col justify-between group">
+                    <article onclick="navigateTo('suplementacao')" tabindex="0" role="button" class="clean-card clean-card-interactive p-6 sm:p-8 flex flex-col justify-between group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
@@ -575,7 +636,7 @@
                     </article>
 
                     <!-- Módulo 6 -->
-                    <article onclick="openModuleModal(6)" tabindex="0" role="button" class="clean-card clean-card-interactive p-8 flex flex-col justify-between group">
+                    <article onclick="openModuleModal(6)" tabindex="0" role="button" class="clean-card clean-card-interactive p-6 sm:p-8 flex flex-col justify-between group">
                         <div>
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
@@ -652,8 +713,8 @@
                 <!-- Panels -->
                 <div class="max-w-5xl mx-auto space-y-8">
                     <!-- FASE 1 PANEL -->
-                    <div id="phase-panel-1" class="clean-card p-8 sm:p-12 border-rose-200 shadow-soft-md">
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div id="phase-panel-1" class="clean-card p-6 sm:p-10 border-rose-200 shadow-soft-md">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                             <div class="lg:col-span-7 space-y-6">
                                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-800">
                                     <i data-lucide="flame" class="w-4 h-4 text-rose-600"></i>
@@ -665,17 +726,17 @@
                                 <p class="text-base sm:text-lg text-sand-700 leading-relaxed">
                                     O nosso primeiro passo é acalmar o seu organismo. Nós vamos focar em desinflamar o seu corpo e diminuir drasticamente as ondas de calor e aquele inchaço que tanto incomodam nos primeiros dias.
                                 </p>
-                                <div class="pt-2 flex flex-wrap gap-4">
-                                    <button type="button" onclick="navigateTo('cardapio')" class="btn-clean-primary px-6 py-3.5 text-sm text-center">
+                                <div class="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                    <button type="button" onclick="navigateTo('cardapio')" class="w-full sm:w-auto btn-clean-primary px-6 py-3.5 text-sm text-center">
                                         Ver Cardápio Anti-inflamatório
                                     </button>
-                                    <button type="button" onclick="navigateTo('suplementacao')" class="btn-clean-secondary px-6 py-3.5 text-sm text-center">
+                                    <button type="button" onclick="navigateTo('suplementacao')" class="w-full sm:w-auto btn-clean-secondary px-6 py-3.5 text-sm text-center">
                                         Chás Refrescantes da Fase 1
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="lg:col-span-5 bg-rose-50/70/70 border border-rose-100 rounded-2xl p-7 space-y-4">
+                            <div class="lg:col-span-5 bg-rose-50/70 border border-rose-100 rounded-2xl p-6 sm:p-7 space-y-4">
                                 <h4 class="font-display font-bold text-sm uppercase tracking-wider text-rose-800 flex items-center gap-2">
                                     <i data-lucide="sparkles" class="w-4 h-4 text-rose-600"></i>
                                     Metas Clínicas da Semana 1
@@ -699,8 +760,8 @@
                     </div>
 
                     <!-- FASE 2 PANEL -->
-                    <div id="phase-panel-2" class="hidden clean-card p-8 sm:p-12 border-rose-200 shadow-soft-md">
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div id="phase-panel-2" class="hidden clean-card p-6 sm:p-10 border-rose-200 shadow-soft-md">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                             <div class="lg:col-span-7 space-y-6">
                                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-800">
                                     <i data-lucide="moon" class="w-4 h-4 text-rose-600"></i>
@@ -712,17 +773,17 @@
                                 <p class="text-base sm:text-lg text-sand-700 leading-relaxed">
                                     Com o corpo já menos inflamado, a nossa missão passa a ser regular a sua noite de sono e dar aquele empurrão no metabolismo. É aqui que você começa a sentir mais energia para o dia a dia e nota a diferença nas roupas.
                                 </p>
-                                <div class="pt-2 flex flex-wrap gap-4">
-                                    <button type="button" onclick="navigateTo('suplementacao')" class="btn-clean-primary px-6 py-3.5 text-sm text-center">
+                                <div class="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                    <button type="button" onclick="navigateTo('suplementacao')" class="w-full sm:w-auto btn-clean-primary px-6 py-3.5 text-sm text-center">
                                         Ver Suporte Noturno (Magnésio & Chás)
                                     </button>
-                                    <button type="button" onclick="navigateTo('metricas')" class="btn-clean-secondary px-6 py-3.5 text-sm text-center">
+                                    <button type="button" onclick="navigateTo('metricas')" class="w-full sm:w-auto btn-clean-secondary px-6 py-3.5 text-sm text-center">
                                         Calcular Hidratação & IMC
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="lg:col-span-5 bg-rose-50/70/70 border border-rose-100 rounded-2xl p-7 space-y-4">
+                            <div class="lg:col-span-5 bg-rose-50/70 border border-rose-100 rounded-2xl p-6 sm:p-7 space-y-4">
                                 <h4 class="font-display font-bold text-sm uppercase tracking-wider text-rose-800 flex items-center gap-2">
                                     <i data-lucide="moon" class="w-4 h-4 text-rose-600"></i>
                                     Metas Clínicas da Semana 2
@@ -746,8 +807,8 @@
                     </div>
 
                     <!-- FASE 3 PANEL -->
-                    <div id="phase-panel-3" class="hidden clean-card p-8 sm:p-12 border-rose-200 shadow-soft-md">
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div id="phase-panel-3" class="hidden clean-card p-6 sm:p-10 border-rose-200 shadow-soft-md">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                             <div class="lg:col-span-7 space-y-6">
                                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-800">
                                     <i data-lucide="shield" class="w-4 h-4 text-rose-600"></i>
@@ -759,17 +820,17 @@
                                 <p class="text-base sm:text-lg text-sand-700 leading-relaxed">
                                     A última etapa é sobre blindar o seu corpo contra o envelhecimento. Focamos totalmente na manutenção da sua massa muscular para proteger os ossos, dar firmeza ao corpo e garantir que você mantenha esses resultados para a vida toda.
                                 </p>
-                                <div class="pt-2 flex flex-wrap gap-4">
-                                    <button type="button" onclick="navigateTo('treinos')" class="btn-clean-primary px-6 py-3.5 text-sm text-center">
+                                <div class="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                    <button type="button" onclick="navigateTo('treinos')" class="w-full sm:w-auto btn-clean-primary px-6 py-3.5 text-sm text-center">
                                         Ver Fichas de Treino de Força
                                     </button>
-                                    <button type="button" onclick="navigateTo('cardapio')" class="btn-clean-secondary px-6 py-3.5 text-sm text-center">
+                                    <button type="button" onclick="navigateTo('cardapio')" class="w-full sm:w-auto btn-clean-secondary px-6 py-3.5 text-sm text-center">
                                         Aporte Proteico na Dieta
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="lg:col-span-5 bg-rose-50/70/70 border border-rose-100 rounded-2xl p-7 space-y-4">
+                            <div class="lg:col-span-5 bg-rose-50/70 border border-rose-100 rounded-2xl p-6 sm:p-7 space-y-4">
                                 <h4 class="font-display font-bold text-sm uppercase tracking-wider text-rose-800 flex items-center gap-2">
                                     <i data-lucide="dumbbell" class="w-4 h-4 text-rose-600"></i>
                                     Metas Clínicas da Semana 3
@@ -818,9 +879,9 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
                     
                     <!-- Permitidos -->
-                    <div class="clean-card p-8 sm:p-10 border-emerald-200/80 shadow-soft-sm">
-                        <div class="flex items-center gap-4 mb-8 pb-5 border-b border-rose-50">
-                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-200">
+                    <div class="clean-card p-6 sm:p-10 border-emerald-200/80 shadow-soft-sm">
+                        <div class="flex items-center gap-4 mb-6 sm:mb-8 pb-5 border-b border-rose-50">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-200 shrink-0">
                                 <i data-lucide="check-circle-2" class="w-6 h-6"></i>
                             </div>
                             <div>
@@ -863,9 +924,9 @@
                     </div>
 
                     <!-- A Evitar -->
-                    <div class="clean-card p-8 sm:p-10 border-rose-200/80 shadow-soft-sm">
-                        <div class="flex items-center gap-4 mb-8 pb-5 border-b border-rose-50">
-                            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center border border-rose-200">
+                    <div class="clean-card p-6 sm:p-10 border-rose-200/80 shadow-soft-sm">
+                        <div class="flex items-center gap-4 mb-6 sm:mb-8 pb-5 border-b border-rose-50">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center border border-rose-200 shrink-0">
                                 <i data-lucide="x-circle" class="w-6 h-6"></i>
                             </div>
                             <div>
@@ -910,7 +971,7 @@
                 </div>
 
                 <!-- Dica Prática de Montagem do Prato -->
-                <div class="clean-card p-8 sm:p-10 border-rose-100">
+                <div class="clean-card p-6 sm:p-10 border-rose-100">
                     <h3 class="font-display font-bold text-xl text-sand-900 mb-6 flex items-center gap-2.5">
                         <i data-lucide="sparkles" class="w-5 h-5 text-rose-600"></i>
                         A Regra do Prato Hormonalmente Inteligente
@@ -958,7 +1019,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     
                     <!-- Ficha A -->
-                    <div class="clean-card p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
+                    <div class="clean-card p-6 sm:p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
                         <div>
                             <div class="flex items-center justify-between mb-5">
                                 <span class="px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-800">Treino A</span>
@@ -979,7 +1040,7 @@
                     </div>
 
                     <!-- Ficha B -->
-                    <div class="clean-card p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
+                    <div class="clean-card p-6 sm:p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
                         <div>
                             <div class="flex items-center justify-between mb-5">
                                 <span class="px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-800">Treino B</span>
@@ -1000,7 +1061,7 @@
                     </div>
 
                     <!-- Alongamento -->
-                    <div class="clean-card p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
+                    <div class="clean-card p-6 sm:p-8 flex flex-col justify-between border-rose-100 shadow-soft-sm">
                         <div>
                             <div class="flex items-center justify-between mb-5">
                                 <span class="px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-800">Mobilidade</span>
@@ -1055,7 +1116,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     
                     <!-- Suplemento 1 -->
-                    <div class="clean-card p-8 border-rose-100">
+                    <div class="clean-card p-6 sm:p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Noite & Sono</span>
                             <i data-lucide="moon" class="w-5 h-5 text-rose-600"></i>
@@ -1070,7 +1131,7 @@
                     </div>
 
                     <!-- Suplemento 2 -->
-                    <div class="clean-card p-8 border-rose-100">
+                    <div class="clean-card p-6 sm:p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Fogachos & Calor</span>
                             <i data-lucide="sparkles" class="w-5 h-5 text-rose-600"></i>
@@ -1085,7 +1146,7 @@
                     </div>
 
                     <!-- Suplemento 3 -->
-                    <div class="clean-card p-8 border-rose-100">
+                    <div class="clean-card p-6 sm:p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Ossos & Imunidade</span>
                             <i data-lucide="shield-check" class="w-5 h-5 text-rose-600"></i>
@@ -1100,7 +1161,7 @@
                     </div>
 
                     <!-- Suplemento 4 -->
-                    <div class="clean-card p-8 border-rose-100">
+                    <div class="clean-card p-6 sm:p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Pele & Articulações</span>
                             <i data-lucide="droplet" class="w-5 h-5 text-rose-600"></i>
@@ -1115,7 +1176,7 @@
                     </div>
 
                     <!-- Suplemento 5 -->
-                    <div class="clean-card p-8 border-rose-100">
+                    <div class="clean-card p-6 sm:p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Força & Cérebro</span>
                             <i data-lucide="zap" class="w-5 h-5 text-rose-600"></i>
@@ -1130,7 +1191,7 @@
                     </div>
 
                     <!-- Suplemento 6 -->
-                    <div class="clean-card p-8 border-rose-100">
+                    <div class="clean-card p-6 sm:p-8 border-rose-100">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Anti-inflamação</span>
                             <i data-lucide="sun" class="w-5 h-5 text-rose-600"></i>
@@ -1170,7 +1231,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-5xl mx-auto">
                     
                     <!-- Form -->
-                    <div class="lg:col-span-6 clean-card p-8 sm:p-10 border-rose-100 shadow-soft-sm">
+                    <div class="lg:col-span-6 clean-card p-6 sm:p-10 border-rose-100 shadow-soft-sm">
                         <h3 class="font-display font-bold text-xl text-sand-900 mb-6 flex items-center gap-2.5">
                             <i data-lucide="sliders" class="w-5 h-5 text-rose-600"></i>
                             Insira Seus Dados
@@ -1180,28 +1241,28 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-weight">Seu Peso (kg)</label>
-                                    <input type="number" id="input-weight" value="68" step="0.1" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                    <input type="number" id="input-weight" value="68" step="0.1" inputmode="decimal" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-4 py-3 text-base text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-height">Sua Altura (cm)</label>
-                                    <input type="number" id="input-height" value="165" step="1" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                    <input type="number" id="input-height" value="165" step="1" inputmode="numeric" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-4 py-3 text-base text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-waist">Cintura (cm)</label>
-                                    <input type="number" id="input-waist" value="78" step="0.5" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                    <input type="number" id="input-waist" value="78" step="0.5" inputmode="decimal" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-4 py-3 text-base text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-hip">Quadril (cm)</label>
-                                    <input type="number" id="input-hip" value="98" step="0.5" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                    <input type="number" id="input-hip" value="98" step="0.5" inputmode="decimal" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-4 py-3 text-base text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-xs font-semibold text-sand-700 mb-1.5" for="input-activity">Nível de Atividade & Clima</label>
-                                <select id="input-activity" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-3.5 py-2.5 text-sm text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
+                                <select id="input-activity" class="w-full bg-[#FAF1F2] border border-sand-300 rounded-xl px-4 py-3 text-base text-sand-900 focus:border-rose-500 focus:bg-white focus:outline-none transition-colors">
                                     <option value="35">Padrão Terapêutico (35ml por kg)</option>
                                     <option value="40" selected>Dias Quentes ou Treino Moderado (40ml por kg)</option>
                                     <option value="45">Atividade Intensa / Muita Transpiração (45ml por kg)</option>
@@ -1217,7 +1278,7 @@
                     <!-- Resultados -->
                     <div class="lg:col-span-6 space-y-6">
                         <!-- Card Meta de Água -->
-                        <div class="clean-card p-8 border-rose-200 bg-[#FAF1F2]/70 shadow-soft-sm">
+                        <div class="clean-card p-6 sm:p-8 border-rose-200 bg-[#FAF1F2]/70 shadow-soft-sm">
                             <span class="text-xs font-bold uppercase tracking-wider text-rose-700 block mb-1">Hidratação Celular</span>
                             <h4 class="font-display font-bold text-2xl text-sand-900 mb-2">
                                 <span id="res-water-ml" class="text-3xl sm:text-4xl text-rose-700 font-extrabold">2.720</span> ml de água por dia
@@ -1231,7 +1292,7 @@
                         </div>
 
                         <!-- Card IMC & RCQ -->
-                        <div class="clean-card p-8 border-rose-100 shadow-soft-sm">
+                        <div class="clean-card p-6 sm:p-8 border-rose-100 shadow-soft-sm">
                             <div class="grid grid-cols-2 gap-6">
                                 <div>
                                     <span class="text-xs font-bold uppercase tracking-wider text-sand-500 block mb-1">Seu IMC</span>
@@ -1259,7 +1320,7 @@
              BANNER SUPORTE WHATSAPP (ACOLHEDOR & CLEAN)
         =========================================== -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-            <div class="clean-card p-8 sm:p-10 border-rose-100 bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft-sm">
+            <div class="clean-card p-6 sm:p-10 border-rose-100 bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft-sm">
                 <div class="flex items-start sm:items-center gap-5">
                     <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
                         <i data-lucide="headset" class="w-7 h-7"></i>
@@ -1301,22 +1362,22 @@
     <!-- ==========================================
          MODAL DO VÍDEO DE BOAS-VINDAS
     =========================================== -->
-    <div id="video-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
-        <div class="relative w-full max-w-4xl bg-white rounded-3xl border border-rose-100 shadow-soft-lg overflow-hidden">
-            <div class="flex items-center justify-between px-6 py-4 border-b border-rose-100 bg-[#FAF1F2]">
+    <div id="video-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true">
+        <div class="relative w-full max-w-4xl bg-white rounded-2xl sm:rounded-3xl border border-rose-100 shadow-soft-lg overflow-hidden my-auto max-h-[92dvh] flex flex-col">
+            <div class="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-rose-100 bg-[#FAF1F2] shrink-0">
                 <div class="flex items-center gap-2.5">
                     <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
-                    <h3 class="font-display font-bold text-base sm:text-lg text-sand-900">
-                        Aula Inaugural — Protocolo Menopausa (Clínica Ale Zorzan)
+                    <h3 class="font-display font-bold text-sm sm:text-lg text-sand-900 truncate">
+                        Aula Inaugural — Protocolo Menopausa
                     </h3>
                 </div>
-                <button type="button" onclick="closeVideoModal()" class="p-2 rounded-xl bg-white hover:bg-sand-100 text-sand-600 hover:text-sand-900 border border-rose-100 transition-colors" aria-label="Fechar vídeo">
+                <button type="button" onclick="closeVideoModal()" class="min-w-[40px] min-h-[40px] p-2 rounded-xl bg-white hover:bg-sand-100 text-sand-600 hover:text-sand-900 border border-rose-100 transition-colors flex items-center justify-center active:scale-95" aria-label="Fechar vídeo">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
 
-            <div class="aspect-video w-full bg-sand-900 relative flex flex-col items-center justify-center p-6 text-center">
-                <video id="protocol-video" class="w-full h-full object-cover rounded-b-none" controls playsinline>
+            <div class="aspect-video w-full bg-sand-900 relative flex flex-col items-center justify-center text-center">
+                <video id="protocol-video" class="w-full h-full object-cover" controls playsinline preload="metadata">
                     <source src="../Página DF21/hero_video_hq.mp4" type="video/mp4">
                 </video>
             </div>
@@ -1326,21 +1387,21 @@
     <!-- ==========================================
          MODAL INTERATIVO DOS MÓDULOS
     =========================================== -->
-    <div id="module-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
-        <div class="relative w-full max-w-2xl bg-white rounded-3xl border border-rose-100 shadow-soft-lg overflow-hidden p-8 sm:p-10 max-h-[90vh] overflow-y-auto">
-            <div class="flex items-start justify-between gap-4 mb-6">
+    <div id="module-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true">
+        <div class="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl border border-rose-100 shadow-soft-lg p-6 sm:p-10 max-h-[88dvh] overflow-y-auto my-auto">
+            <div class="flex items-start justify-between gap-4 mb-5 sm:mb-6">
                 <div>
                     <span id="module-modal-badge" class="text-xs font-bold uppercase tracking-widest text-rose-700 block mb-1">Módulo 01</span>
-                    <h3 id="module-modal-title" class="font-display font-bold text-2xl text-sand-900">Título do Módulo</h3>
+                    <h3 id="module-modal-title" class="font-display font-bold text-xl sm:text-2xl text-sand-900">Título do Módulo</h3>
                 </div>
-                <button type="button" onclick="closeModuleModal()" class="p-2 rounded-xl bg-sand-100 hover:bg-sand-200 text-sand-600 hover:text-sand-900 transition-colors" aria-label="Fechar modal">
+                <button type="button" onclick="closeModuleModal()" class="min-w-[40px] min-h-[40px] p-2 rounded-xl bg-sand-100 hover:bg-sand-200 text-sand-600 hover:text-sand-900 transition-colors flex items-center justify-center active:scale-95 shrink-0" aria-label="Fechar modal">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
 
             <p id="module-modal-desc" class="text-sm sm:text-base text-sand-700 leading-relaxed mb-6"></p>
 
-            <div class="bg-[#FAF1F2] border border-rose-100 rounded-2xl p-6 mb-8">
+            <div class="bg-[#FAF1F2] border border-rose-100 rounded-2xl p-5 sm:p-6 mb-6 sm:mb-8">
                 <h4 class="text-xs font-bold uppercase tracking-wider text-rose-800 mb-3.5 flex items-center gap-2">
                     <i data-lucide="list-checks" class="w-4 h-4 text-rose-600"></i>
                     <span>Checklist Prático deste Módulo</span>
@@ -1349,10 +1410,10 @@
             </div>
 
             <div class="flex flex-col sm:flex-row items-center justify-end gap-3">
-                <button type="button" onclick="closeModuleModal()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-sand-100 border border-rose-100 text-xs sm:text-sm font-semibold text-sand-700">
+                <button type="button" onclick="closeModuleModal()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-sand-100 border border-rose-100 text-xs sm:text-sm font-semibold text-sand-700 active:scale-95">
                     Fechar
                 </button>
-                <a id="module-modal-cta" href="javascript:void(0)" onclick="closeModuleModal()" class="w-full sm:w-auto btn-clean-primary px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-center">
+                <a id="module-modal-cta" href="javascript:void(0)" onclick="closeModuleModal()" class="w-full sm:w-auto btn-clean-primary px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-center active:scale-95">
                     Ver Conteúdo
                 </a>
             </div>
@@ -1377,12 +1438,21 @@
                 targetView.classList.add('active-view');
             }
 
-            // Navigation Links
+            // Desktop Navigation Links
             document.querySelectorAll('.nav-item').forEach(btn => {
                 if (btn.getAttribute('data-nav') === viewId) {
                     btn.className = "nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-rose-800 bg-rose-50 transition-all";
                 } else {
                     btn.className = "nav-item px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-sand-800 hover:text-rose-700 hover:bg-rose-50/70 transition-all";
+                }
+            });
+
+            // Mobile Drawer Navigation Links
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-mobile-nav') === viewId) {
+                    btn.className = "mobile-nav-btn w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-rose-800 bg-rose-50/90 border border-rose-200/60 flex items-center justify-between min-h-[48px]";
+                } else {
+                    btn.className = "mobile-nav-btn w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-sand-800 hover:bg-rose-50/50 hover:text-rose-800 transition-all flex items-center justify-between min-h-[48px]";
                 }
             });
 
@@ -1508,13 +1578,22 @@
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
         function toggleMobileMenu(force) {
-            if (force !== undefined) {
-                if (force) mobileMenu.classList.remove('hidden');
-                else mobileMenu.classList.add('hidden');
+            const isCurrentlyHidden = mobileMenu.classList.contains('hidden');
+            const shouldOpen = force !== undefined ? force : isCurrentlyHidden;
+
+            if (shouldOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                if (mobileMenuIcon) mobileMenuIcon.setAttribute('data-lucide', 'x');
             } else {
-                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                if (mobileMenuIcon) mobileMenuIcon.setAttribute('data-lucide', 'menu');
             }
+            lucide.createIcons();
         }
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
@@ -1591,21 +1670,24 @@
         });
     </script>
     <!-- ==========================================
-         BOTÃO FLUTUANTE DE SUPORTE WHATSAPP
+         BOTÃO FLUTUANTE DE SUPORTE WHATSAPP (RESPONSIVO COM SAFE AREA)
     =========================================== -->
-    <aside class="fixed bottom-6 right-6 z-40">
+    <aside class="floating-whatsapp fixed z-40">
         <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Sou%20aluna%20do%20Protocolo%20Menopausa%20da%20Cl%C3%ADnica%20Ale%20Zorzan%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida." 
            target="_blank" 
            rel="noopener noreferrer" 
            aria-label="Abrir suporte pelo WhatsApp com a equipe da Clínica Ale Zorzan"
-           class="group flex items-center gap-3 bg-white text-sand-900 pl-4 pr-5 py-3 rounded-full border border-rose-100/90 shadow-soft-lg hover:shadow-soft-hover hover:border-emerald-300 transition-all duration-300 transform hover:-translate-y-1">
-            <span class="relative flex h-3.5 w-3.5">
+           class="group flex items-center gap-2.5 sm:gap-3 bg-white/95 backdrop-blur-md text-sand-900 px-3.5 sm:pl-4 sm:pr-5 py-2.5 sm:py-3 rounded-full border border-rose-200/90 shadow-soft-lg active:scale-95 hover:border-emerald-300 transition-all duration-200">
+            <span class="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-emerald-500"></span>
             </span>
             <div class="flex flex-col text-left">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 leading-none">Suporte Online</span>
-                <span class="text-sm font-semibold text-sand-900 group-hover:text-emerald-700 transition-colors mt-0.5">Dúvidas? Fale no WhatsApp</span>
+                <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-emerald-700 leading-none">Suporte</span>
+                <span class="text-xs sm:text-sm font-semibold text-sand-900 group-hover:text-emerald-700 transition-colors mt-0.5">
+                    <span class="hidden sm:inline">Dúvidas? Fale no WhatsApp</span>
+                    <span class="sm:hidden">WhatsApp</span>
+                </span>
             </div>
         </a>
     </aside>
